@@ -1,10 +1,26 @@
-/* --- RESET E VARIÁVEIS --- */
+/* =========================================
+   1. RESET, VARIÁVEIS E CONFIGURAÇÕES BASE
+   ========================================= */
 :root {
+    /* Fontes Originais */
     --font-highlight: 'Orbitron', sans-serif;
     --font-text: 'Arvo', serif;
-    --bg-color: #f4f4f4;
-    --dark-text: #111;
+
+    /* NOVA Paleta de Cores (Dark Mode) */
+    --bg-color: #1D1D1D;       /* Fundo Principal */
+    --text-main: #D9D9D9;      /* Texto Claro */
+    --purple-dark: #4F3982;    /* Roxo Escuro (Seleção/Fundo forte) */
+    --purple-light: #9588B4;   /* Roxo Claro (Hover/Acentos) */
+    --card-bg: #262626;        /* Fundo dos cartões */
+    
+    /* Configurações Globais */
     --card-radius: 16px;
+}
+
+/* Seleção de Texto Personalizada */
+::selection {
+    background-color: var(--purple-dark);
+    color: #fff;
 }
 
 * { margin: 0; padding: 0; box-sizing: border-box; }
@@ -12,11 +28,26 @@
 body {
     background-color: var(--bg-color);
     font-family: var(--font-text);
-    color: var(--dark-text);
+    color: var(--text-main);
     line-height: 1.5;
+    overflow-x: hidden; /* Evita scroll horizontal indesejado */
+
+    /* FUNDO REATIVO (Gradient Follow Mouse) */
+    /* As variáveis --mouse-x e --mouse-y vêm do JS */
+    background-image: radial-gradient(
+        circle at var(--mouse-x, 50%) var(--mouse-y, 50%), 
+        rgba(79, 57, 130, 0.25) 0%, 
+        transparent 50%
+    );
+    background-attachment: fixed;
 }
 
-a { text-decoration: none; color: inherit; }
+a { text-decoration: none; color: inherit; transition: 0.3s; }
+a:hover { color: var(--purple-light); }
+
+/* Classes de Animação (JS) */
+.hidden { opacity: 0; filter: blur(5px); transform: translateY(20px); transition: all 0.8s ease-out; }
+.show { opacity: 1; filter: blur(0); transform: translateY(0); }
 
 /* Container Central */
 .container {
@@ -25,7 +56,9 @@ a { text-decoration: none; color: inherit; }
     padding: 0 20px;
 }
 
-/* --- HEADER --- */
+/* =========================================
+   2. HEADER & NAV
+   ========================================= */
 header {
     display: flex;
     justify-content: space-between;
@@ -39,6 +72,11 @@ header {
     font-size: 1.5rem;
     letter-spacing: 2px;
     text-transform: uppercase;
+    color: var(--text-main);
+}
+/* Efeito extra na logo */
+.logo:hover {
+    text-shadow: 0 0 10px var(--purple-dark);
 }
 
 nav ul {
@@ -52,9 +90,23 @@ nav a {
     font-size: 0.8rem;
     text-transform: uppercase;
     font-weight: 600;
+    position: relative;
 }
 
-/* --- HERO SECTION --- */
+/* Linha animada no hover do menu */
+nav a::after {
+    content: '';
+    position: absolute; width: 0; height: 2px;
+    bottom: -5px; left: 0;
+    background-color: var(--purple-light);
+    transition: width 0.3s;
+}
+nav a:hover::after { width: 100%; }
+
+
+/* =========================================
+   3. HERO SECTION
+   ========================================= */
 .hero {
     position: relative;
     width: 100%;
@@ -62,13 +114,18 @@ nav a {
     border-radius: var(--card-radius);
     overflow: hidden;
     margin-bottom: 40px;
+    /* Adicionei uma borda subtil e sombra roxa */
+    border: 1px solid rgba(255,255,255,0.05);
+    box-shadow: 0 0 30px rgba(79, 57, 130, 0.15);
 }
 
 .hero img {
     width: 100%;
     height: 100%;
     object-fit: cover;
+    transition: transform 10s ease; /* Efeito de zoom lento */
 }
+.hero:hover img { transform: scale(1.1); }
 
 .hero-text {
     position: absolute;
@@ -76,16 +133,28 @@ nav a {
     left: 40px;
     color: white;
     max-width: 500px;
+    z-index: 2;
 }
 
 .hero-text h1 {
     font-family: var(--font-highlight);
     font-size: 2rem;
     line-height: 1.2;
-    text-shadow: 0 2px 10px rgba(0,0,0,0.5);
+    text-shadow: 0 2px 10px rgba(0,0,0,0.8);
 }
 
-/* --- TOPICS SECTION --- */
+/* Overlay gradiente para garantir leitura do texto */
+.hero::after {
+    content: ''; position: absolute;
+    bottom: 0; left: 0; width: 100%; height: 70%;
+    background: linear-gradient(to top, var(--bg-color), transparent);
+    z-index: 1;
+}
+
+
+/* =========================================
+   4. TOPICS SECTION (Scroll Infinito)
+   ========================================= */
 .topics {
     text-align: center;
     margin-bottom: 60px;
@@ -96,34 +165,66 @@ nav a {
     font-size: 2.5rem;
     text-transform: uppercase;
     letter-spacing: 4px;
-    margin-bottom: 20px;
+    margin-bottom: 30px;
+    color: var(--text-main);
 }
 
-.tags-container {
+/* Container do Scroll */
+.scroller {
+    max-width: 100%;
+    overflow: hidden;
+    /* Máscara para suavizar as bordas laterais */
+    -webkit-mask: linear-gradient(90deg, transparent, white 5%, white 95%, transparent);
+    mask: linear-gradient(90deg, transparent, white 5%, white 95%, transparent);
+}
+
+.tag-list {
     display: flex;
-    flex-wrap: wrap;
-    justify-content: center;
-    gap: 10px;
+    gap: 1.5rem;
+    padding-block: 1rem;
+    width: max-content;
+    flex-wrap: nowrap;
+}
+
+/* Animação ativada via JS data-attribute */
+.scroller[data-animated="true"] .tag-list {
+    animation: scroll 30s linear infinite;
+}
+
+.scroller[data-animated="true"]:hover .tag-list {
+    animation-play-state: paused;
+}
+
+@keyframes scroll {
+    to { transform: translate(calc(-50% - 0.75rem)); }
 }
 
 .tag {
-    background: white;
-    padding: 10px 20px;
+    background: rgba(255, 255, 255, 0.05);
+    padding: 10px 25px;
     border-radius: 50px;
     font-family: var(--font-highlight);
     font-size: 0.9rem;
     font-weight: 600;
     cursor: pointer;
     transition: 0.3s;
-    border: 1px solid transparent;
-    box-shadow: 0 2px 5px rgba(0,0,0,0.05);
+    border: 1px solid rgba(255,255,255,0.1);
+    white-space: nowrap;
+    color: var(--text-main);
 }
 
 .tag:hover {
-    border-color: #000;
+    border-color: var(--purple-light);
+    background: var(--purple-dark);
+    color: white;
+    box-shadow: 0 0 15px var(--purple-dark);
+    transform: translateY(-2px);
 }
 
-/* --- INFO / DID YOU KNOW SECTION --- */
+
+/* =========================================
+   5. INFO SECTION
+   ========================================= */
 .info-section {
     text-align: center;
     max-width: 700px;
@@ -139,8 +240,10 @@ nav a {
     display: flex;
     align-items: center;
     justify-content: center;
-    color: white;
+    color: var(--purple-light);
     font-family: var(--font-highlight);
+    border: 1px solid var(--purple-dark);
+    box-shadow: 0 0 20px rgba(79, 57, 130, 0.2);
 }
 
 .info-section h3 {
@@ -156,11 +259,30 @@ nav a {
     margin-top: 40px;
     gap: 20px;
     text-align: left;
+    
+    /* Box subtil em volta das noticias pequenas */
+    padding: 20px;
+    background: rgba(255,255,255,0.02);
+    border-radius: var(--card-radius);
+    border: 1px solid rgba(255,255,255,0.05);
 }
-.mini-item h4 { font-family: var(--font-highlight); font-size: 0.9rem; margin-bottom: 5px; }
-.mini-item p { font-size: 0.8rem; color: #666; }
 
-/* --- BENTO GRID --- */
+.mini-item h4 {
+    font-family: var(--font-highlight);
+    font-size: 0.9rem;
+    margin-bottom: 5px;
+    color: var(--purple-light);
+}
+
+.mini-item p {
+    font-size: 0.8rem;
+    color: #888;
+}
+
+
+/* =========================================
+   6. NEWS GRID (BENTO GRID)
+   ========================================= */
 .news-grid {
     display: grid;
     grid-template-columns: 1fr 1fr;
@@ -173,22 +295,32 @@ nav a {
     position: relative;
     border-radius: var(--card-radius);
     overflow: hidden;
-    background-color: #fff;
-    box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+    background-color: var(--card-bg);
+    box-shadow: 0 4px 15px rgba(0,0,0,0.3);
+    border: 1px solid rgba(255,255,255,0.05);
+    transition: transform 0.3s, box-shadow 0.3s, border-color 0.3s;
+    cursor: pointer;
+}
+
+.card:hover {
+    transform: translateY(-5px);
+    border-color: var(--purple-dark);
+    box-shadow: 0 10px 30px rgba(0,0,0,0.5);
 }
 
 .card-bg {
     width: 100%;
     height: 100%;
     object-fit: cover;
-    transition: transform 0.3s;
+    transition: transform 0.5s;
+    opacity: 0.7; /* Imagens mais escuras para o texto brilhar */
 }
-.card:hover .card-bg { transform: scale(1.05); }
+.card:hover .card-bg { transform: scale(1.05); opacity: 0.5; }
 
 .overlay {
     position: absolute;
     top: 0; left: 0; width: 100%; height: 100%;
-    background: linear-gradient(to top, rgba(0,0,0,0.9), rgba(0,0,0,0.1));
+    background: linear-gradient(to top, rgba(0,0,0,0.95), transparent);
     display: flex;
     flex-direction: column;
     justify-content: space-between;
@@ -196,9 +328,10 @@ nav a {
 }
 
 .card-tags { display: flex; gap: 10px; }
+
 .card-tag {
-    background: white;
-    color: black;
+    background: var(--purple-dark);
+    color: white;
     padding: 4px 12px;
     border-radius: 20px;
     font-family: var(--font-highlight);
@@ -220,18 +353,38 @@ nav a {
     font-size: 0.9rem;
     opacity: 0.9;
     margin-bottom: 15px;
+    color: #ccc;
 }
 
-.arrow { font-size: 1.5rem; float: right; }
+.arrow {
+    font-size: 1.5rem;
+    float: right;
+    width: 40px; height: 40px;
+    border-radius: 50%;
+    display: flex; align-items: center; justify-content: center;
+    background: rgba(255,255,255,0.1);
+    transition: 0.3s;
+}
+.card:hover .arrow {
+    background: var(--purple-light);
+    color: white;
+}
 
-.card.dark { background-color: #1a1a2e; }
+/* Card Especial Escuro (Chart) */
+.card.dark {
+    background-color: #0d0d0d;
+}
 .card.dark .chart-placeholder {
     width: 100%; height: 100%;
     display: flex; align-items: center; justify-content: center;
-    color: #4facfe;
+    /* Gradiente roxo subtil no fundo do gráfico */
+    background: radial-gradient(circle at center, #2e204d 0%, #0d0d0d 70%);
 }
 
-/* --- TOP LIST SECTION --- */
+
+/* =========================================
+   7. TOP LIST SECTION
+   ========================================= */
 .top-section { margin-bottom: 80px; }
 
 .top-header {
@@ -246,13 +399,21 @@ nav a {
     font-family: var(--font-highlight);
     font-size: 2.5rem;
     text-transform: uppercase;
+    color: var(--text-main);
 }
 
 .pill-badge {
     font-family: var(--font-highlight);
-    border: 1px solid #000;
+    border: 1px solid var(--purple-light);
+    color: var(--purple-light);
     padding: 5px 15px;
     border-radius: 20px;
+    transition: 0.3s;
+    cursor: default;
+}
+.pill-badge:hover {
+    background: var(--purple-light);
+    color: white;
 }
 
 .top-cards {
@@ -266,30 +427,43 @@ nav a {
     border-radius: var(--card-radius);
     overflow: hidden;
     position: relative;
+    border: 1px solid rgba(255,255,255,0.05);
+    background: #000;
 }
 
 .vertical-card img {
     width: 100%;
     height: 100%;
     object-fit: cover;
-    filter: brightness(0.7) hue-rotate(180deg);
+    filter: grayscale(100%) brightness(0.6);
+    transition: 0.5s;
 }
 
-/* --- FOOTER --- */
+.vertical-card:hover img {
+    filter: grayscale(0%) brightness(1);
+    transform: scale(1.05);
+}
+
+
+/* =========================================
+   8. FOOTER
+   ========================================= */
 footer {
     background-color: #000;
     color: white;
     padding: 60px 20px;
     text-align: center;
+    border-top: 1px solid #333;
 }
 
 .footer-logo {
     font-family: var(--font-highlight);
     font-size: 2rem;
     margin-bottom: 20px;
-    border: 2px solid white;
+    border: 2px solid var(--purple-light);
     display: inline-block;
     padding: 5px 15px;
+    color: var(--text-main);
 }
 
 .footer-links {
@@ -299,15 +473,30 @@ footer {
     font-size: 0.8rem;
     color: #888;
 }
+.footer-links div p {
+    margin-bottom: 5px;
+    cursor: pointer;
+    transition: 0.2s;
+}
+.footer-links div p:hover {
+    color: var(--purple-light);
+}
 
-/* Responsividade */
+
+/* =========================================
+   9. RESPONSIVIDADE
+   ========================================= */
 @media (max-width: 768px) {
     .news-grid, .top-cards, .mini-articles {
         grid-template-columns: 1fr;
         flex-direction: column;
     }
     .news-grid { grid-template-rows: auto; }
-    .card { height: 300px; }
+    
+    .card { height: 350px; }
+    
     .hero-text h1 { font-size: 1.5rem; }
+    
     .top-cards { grid-template-columns: 1fr; }
+    .vertical-card { height: 350px; }
 }

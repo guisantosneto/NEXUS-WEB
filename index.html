@@ -14,7 +14,7 @@
 <body>
 
     <div class="container">
-        <header>
+        <header class="hidden">
             <div class="logo">Nexus</div>
             <nav>
                 <ul>
@@ -25,31 +25,33 @@
             </nav>
         </header>
 
-        <section class="hero">
+        <section class="hero hidden">
             <img src="https://images.unsplash.com/photo-1620712943543-bcc4688e7485?q=80&w=2565&auto=format&fit=crop" alt="AI Robot Hand">
             <div class="hero-text">
                 <h1>Discover the ideas and breakthroughs redefining our world</h1>
             </div>
         </section>
 
-        <section class="topics">
+        <section class="topics hidden">
             <h2>Topics</h2>
-            <div class="tags-container">
-                <div class="tag">Generative AI</div>
-                <div class="tag">AI Ethics</div>
-                <div class="tag">Governance</div>
-                <div class="tag">Future Tech</div>
-                <div class="tag">Infrastructure</div>
-                <div class="tag">Learning</div>
-                <div class="tag">Tools</div>
-                <div class="tag">Open Source</div>
-                <div class="tag">Industry</div>
-                <div class="tag">Analytics</div>
-                <div class="tag">Automation</div>
+            <div class="scroller" data-animated="true">
+                <div class="tag-list">
+                    <div class="tag">Generative AI</div>
+                    <div class="tag">AI Ethics</div>
+                    <div class="tag">Governance</div>
+                    <div class="tag">Future Tech</div>
+                    <div class="tag">Infrastructure</div>
+                    <div class="tag">Learning</div>
+                    <div class="tag">Tools</div>
+                    <div class="tag">Open Source</div>
+                    <div class="tag">Industry</div>
+                    <div class="tag">Analytics</div>
+                    <div class="tag">Automation</div>
+                </div>
             </div>
         </section>
 
-        <section class="info-section">
+        <section class="info-section hidden">
             <div class="info-image">
                 [ Graphic Display ]
             </div>
@@ -71,7 +73,7 @@
             </div>
         </section>
 
-        <section class="news-grid">
+        <section class="news-grid hidden">
             <div class="card">
                 <img src="https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?auto=format&fit=crop&w=800&q=80" class="card-bg" alt="Building">
                 <div class="overlay">
@@ -139,7 +141,7 @@
             </div>
         </section>
 
-        <section class="top-section">
+        <section class="top-section hidden">
             <div class="top-header">
                 <h2>TOP</h2>
                 <span class="pill-badge">Open-Source AI</span>
@@ -193,6 +195,8 @@
             </div>
         </div>
     </footer>
+
+    <script src="script.js"></script>
 
 </body>
 </html>
