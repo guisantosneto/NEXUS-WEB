@@ -1,15 +1,6 @@
 document.addEventListener('DOMContentLoaded', () => {
     
-    /* ------------------------------------------------
-       1. Fundo Reativo (Mouse Glow)
-    ------------------------------------------------ */
-    const body = document.body;
-
-    document.addEventListener('mousemove', (e) => {
-        // Atualiza as variáveis CSS com a posição X e Y do rato
-        body.style.setProperty('--mouse-x', `${e.clientX}px`);
-        body.style.setProperty('--mouse-y', `${e.clientY}px`);
-    });
+   
 
     /* ------------------------------------------------
        2. Lógica do Scroller Infinito (Topics)

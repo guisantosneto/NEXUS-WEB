@@ -32,14 +32,6 @@ body {
     line-height: 1.5;
     overflow-x: hidden; /* Evita scroll horizontal indesejado */
 
-    /* FUNDO REATIVO (Gradient Follow Mouse) */
-    /* As variáveis --mouse-x e --mouse-y vêm do JS */
-    background-image: radial-gradient(
-        circle at var(--mouse-x, 50%) var(--mouse-y, 50%), 
-        rgba(79, 57, 130, 0.25) 0%, 
-        transparent 50%
-    );
-    background-attachment: fixed;
 }
 
 a { text-decoration: none; color: inherit; transition: 0.3s; }
