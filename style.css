@@ -672,6 +672,8 @@ footer {
 }
 
 
+
+
 /* --- RESPONSIVIDADE DO ARTIGO --- */
 @media (max-width: 900px) {
     .article-header { padding: 20px; flex-direction: column; gap: 20px; }
