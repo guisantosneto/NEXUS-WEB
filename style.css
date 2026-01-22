@@ -2,22 +2,22 @@
    1. RESET, VARIÁVEIS E CONFIGURAÇÕES BASE
    ========================================= */
 :root {
-    /* Fontes Originais */
-    --font-highlight: 'Orbitron', sans-serif;
-    --font-text: 'Arvo', serif;
+    /* Fontes */
+    --font-highlight: 'Orbitron', sans-serif; /* Mantém a essência Tech nos títulos */
+    --font-text: 'Inter', sans-serif;         /* Leitura limpa igual ao Artigo */
+    --font-serif: 'Arvo', serif;              /* Para detalhes elegantes */
 
-    /* NOVA Paleta de Cores (Dark Mode) */
-    --bg-color: #D9D9D9;       /* Fundo Principal */
-    --text-main: #1D1D1D;      /* Texto Claro */
-    --purple-dark: #4F3982;    /* Roxo Escuro (Seleção/Fundo forte) */
-    --purple-light: #9588B4;   /* Roxo Claro (Hover/Acentos) */
-    --card-bg: #262626;        /* Fundo dos cartões */
+    /* Paleta de Cores Atualizada (Estilo Arkitect) */
+    --bg-color: #ffffff;       /* Fundo Branco Limpo */
+    --text-main: #111111;      /* Texto Preto Profundo */
+    --purple-dark: #4F3982;    /* Roxo Escuro */
+    --purple-light: #9588B4;   /* Roxo Claro */
+    --card-bg: #1a1a1a;        /* Cartões escuros para contraste */
     
     /* Configurações Globais */
-    --card-radius: 16px;
+    --card-radius: 30px;       /* Arredondamento maior e mais suave */
 }
 
-/* Seleção de Texto Personalizada */
 ::selection {
     background-color: var(--purple-dark);
     color: #fff;
@@ -29,23 +29,20 @@ body {
     background-color: var(--bg-color);
     font-family: var(--font-text);
     color: var(--text-main);
-    line-height: 1.5;
-    overflow-x: hidden; /* Evita scroll horizontal indesejado */
-
+    line-height: 1.6; /* Melhor legibilidade */
+    overflow-x: hidden;
 }
 
 a { text-decoration: none; color: inherit; transition: 0.3s; }
 a:hover { color: var(--purple-light); }
 
-/* Classes de Animação (JS) */
 .hidden { opacity: 0; filter: blur(5px); transform: translateY(20px); transition: all 0.8s ease-out; }
 .show { opacity: 1; filter: blur(0); transform: translateY(0); }
 
-/* Container Central */
 .container {
-    max-width: 99%;
+    max-width: 1400px; /* Largura mais profissional, alinhada com o artigo */
     margin: 0 auto;
-    padding: 0 20px;
+    padding: 0 40px;   /* Mais respiro lateral */
 }
 
 /* =========================================
@@ -194,24 +191,25 @@ nav a:hover::after { width: 100%; }
 }
 
 .tag {
-    background: rgba(255, 255, 255, 0.05);
-    padding: 10px 25px;
+    background: #f5f5f5; /* Cinza muito claro para contrastar com o branco */
+    padding: 10px 30px;
     border-radius: 50px;
     font-family: var(--font-highlight);
-    font-size: 0.9rem;
+    font-size: 0.85rem;
     font-weight: 600;
     cursor: pointer;
     transition: 0.3s;
-    border: 1px solid rgba(255,255,255,0.1);
+    border: 1px solid #e0e0e0; /* Borda subtil */
     white-space: nowrap;
     color: var(--text-main);
+    letter-spacing: 1px;
 }
 
 .tag:hover {
-    border-color: var(--purple-light);
+    border-color: var(--purple-dark);
     background: var(--purple-dark);
     color: white;
-    box-shadow: 0 0 15px var(--purple-dark);
+    box-shadow: 0 5px 15px rgba(79, 57, 130, 0.3);
     transform: translateY(-2px);
 }
 
@@ -318,19 +316,18 @@ nav a:hover::after { width: 100%; }
 
 .card {
     position: relative;
-    border-radius: var(--card-radius);
+    border-radius: var(--card-radius); /* Usa os 30px agora */
     overflow: hidden;
     background-color: var(--card-bg);
-    box-shadow: 0 4px 15px rgba(0,0,0,0.3);
-    border: 1px solid rgba(255,255,255,0.05);
-    transition: transform 0.3s, box-shadow 0.3s, border-color 0.3s;
+    box-shadow: 0 10px 30px rgba(0,0,0,0.1); /* Sombra mais difusa */
+    border: none; /* Remove bordas cinzentas antigas */
+    transition: transform 0.4s cubic-bezier(0.2, 0.8, 0.2, 1), box-shadow 0.4s;
     cursor: pointer;
 }
 
 .card:hover {
-    transform: translateY(-5px);
-    border-color: var(--purple-dark);
-    box-shadow: 0 10px 30px rgba(0,0,0,0.5);
+    transform: translateY(-8px);
+    box-shadow: 0 20px 40px rgba(0,0,0,0.2);
 }
 
 .card-bg {

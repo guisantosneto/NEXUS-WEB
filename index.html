@@ -8,25 +8,34 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Arvo:wght@400;700&family=Inter:wght@300;400;500;600&display=swap,700&family=Orbitron:wght@400;500;700;900&display=swap" rel="stylesheet">
-
+    <link href="https://cdn.jsdelivr.net/npm/remixicon@3.5.0/fonts/remixicon.css" rel="stylesheet">
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
 
-    <div class="container">
-        <header class="hidden">
-            <div class="logo">
+    
+        <header class="ark-header">
+        <div class="logo">
                 <img src="assets\nexuslogo_v3.svg" alt="Nexus Logo">
             </div>
-            <nav>
-                <ul>
-                    <li><a href="#">About</a></li>
-                    <li><a href="#">Events</a></li>
-                    <li><a href="#">Login</a></li>
-                </ul>
-            </nav>
-        </header>
+        
+        <nav class="ark-pill-nav">
+            <ul>
+                <li><a href="index.html">Projects</a></li>
+                <li><a href="#">Services</a></li>
+                <li><a href="#">About</a></li>
+                <li><a href="#">Pages <i class="ri-arrow-down-s-line"></i></a></li>
+            </ul>
+        </nav>
 
+        <div class="ark-socials-top">
+            <i class="ri-twitter-fill"></i>
+            <i class="ri-dribbble-line"></i>
+            <i class="ri-instagram-line"></i>
+        </div>
+    </header>
+
+    <main class="ark-main">
         <section class="hero hidden">
             <video autoplay muted loop playsinline>
                 <source src="assets/grid_video.mp4" type="video/mp4">
@@ -195,22 +204,19 @@
                 </div>
             </div>
         </section>
-    </div>
-
-    <footer>
-        <div class="footer-logo">NEXUS</div>
-        <div class="footer-links">
-            <div>
-                <p>Privacy Policy</p>
-                <p>Terms of Service</p>
-            </div>
-            <div>
-                <p>Contact Us</p>
-                <p>Careers</p>
-            </div>
-            <div>
-                <p>Newsletter</p>
-            </div>
+    
+    </main>
+    <footer class="site-footer">
+        <div class="footer-content">
+            <div class="footer-logo">NEXUS</div>
+            <nav class="footer-nav">
+                <a href="#">Privacy</a>
+                <a href="#">Terms</a>
+                <a href="#">Contact</a>
+            </nav>
+        </div>
+        <div class="footer-bottom">
+            <p>© 2026 Nexus. All rights reserved.</p>
         </div>
     </footer>
 
