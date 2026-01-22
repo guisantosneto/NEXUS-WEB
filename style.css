@@ -637,7 +637,12 @@ footer {
 .ark-pill-nav a:hover { opacity: 1; }
 
 .ark-socials-top {
-    display: flex; gap: 20px; font-size: 1.1rem; color: #333;
+    display: flex;
+    gap: 15px;
+    height: 20px; /* Ajusta este valor conforme o tamanho que queiras */
+    width: auto;   /* Mantém a proporção correta */
+    transition: transform 0.3s ease;
+    
 }
 
 
@@ -742,16 +747,27 @@ footer {
 /* Sidebar Sticky */
 .ark-sidebar {
     position: relative;
+    
 }
+
+/* 1. O contentor (remove a altura fixa) */
 .social-vertical {
     display: flex;
     flex-direction: column;
+    width: auto;
     gap: 20px;
     position: sticky;
     top: 50px;
-    color: #000;
-    font-size: 1.2rem;
+    /* Remove o height: 20px daqui, deixa o conteúdo definir a altura */
 }
+
+/* 2. Controla o tamanho das setas aqui */
+.social-vertical img {
+    width: 20px;  /* Define a largura que queres aqui */
+    height: auto; /* Mantém a proporção correta */
+    cursor: pointer; /* Opcional: mostra a mãozinha ao passar o rato */
+}
+
 .social-vertical a:hover { color: #666; }
 
 
