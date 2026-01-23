@@ -273,8 +273,8 @@ a:hover { color: var(--purple-light); }
     font-family: var(--font-highlight); font-size: 0.7rem; font-weight: 700;
 }
 
-.card-content h3 { font-family: var(--font-serif); font-size: 1.5rem; color: #fff; }
-.card-content p { color: #ccc; font-size: 0.9rem; }
+.card-content h3 { font-family: var(--font-serif); font-size: 1.5rem; color: #fff; text-align: left; }
+.card-content p { color: #ccc; font-size: 0.9rem; text-align: left; }
 
 .card.dark { background-color: #0d0d0d; }
 .card.dark .chart-placeholder {
@@ -518,6 +518,7 @@ a:hover { color: var(--purple-light); }
     color: #000;
     font-size: 1.2rem;
 }
+
 .social-vertical a:hover { color: #666; }
 
 
