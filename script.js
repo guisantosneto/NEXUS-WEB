@@ -85,11 +85,12 @@ document.addEventListener('DOMContentLoaded', () => {
     if (carouselTrack && prevBtn && nextBtn) {
         
         // Função para calcular a distância exata de scroll (Cartão + Gap)
-        const getScrollAmount = () => {
-            const card = carouselTrack.querySelector('.carousel-card');
-            // Largura do cartão + 20px de gap (definido no CSS)
-            return card.offsetWidth + 20; 
-        };
+const getScrollAmount = () => {
+    // ALTERAÇÃO: Procura por '.card' se não encontrar '.carousel-card'
+    const card = carouselTrack.querySelector('.carousel-card') || carouselTrack.querySelector('.card');
+    // Largura do cartão + 20px de gap (definido no CSS)
+    return card.offsetWidth + 20; 
+};
 
         nextBtn.addEventListener('click', () => {
             const distance = getScrollAmount();

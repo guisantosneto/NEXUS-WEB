@@ -272,6 +272,7 @@ a:hover { color: var(--purple-light); }
     padding: 4px 12px; border-radius: 20px;
     font-family: var(--font-highlight); font-size: 0.7rem; font-weight: 700;
 }
+
 .card-content h3 { font-family: var(--font-serif); font-size: 1.5rem; color: #fff; }
 .card-content p { color: #ccc; font-size: 0.9rem; }
 
@@ -591,7 +592,7 @@ a:hover { color: var(--purple-light); }
 }
 
 .next-header h3 {
-    font-family: 'Inter', sans-serif;
+    font-family: var(--font-highlight);
     font-size: 2rem;
     font-weight: 600;
     color: #111;
@@ -629,6 +630,38 @@ a:hover { color: var(--purple-light); }
     .next-grid { grid-template-columns: 1fr; }
     .nexus-card-grid .card { height: 350px; } /* Um pouco menor no mobile */
 }
+
+/* Ajustes específicos para o Carrossel do Read Next */
+.next-read-section .carousel-track {
+    /* Garante que os items ficam em linha */
+    display: flex;
+    gap: 20px;
+    overflow-x: auto; /* Permite scroll manual se necessário */
+    scroll-behavior: smooth;
+    padding-bottom: 20px; /* Espaço para não cortar a sombra */
+    
+    /* Esconder a barra de scroll padrão */
+    scrollbar-width: none; 
+    -ms-overflow-style: none;
+}
+.next-read-section .carousel-track::-webkit-scrollbar { 
+    display: none; 
+}
+
+/* Tamanho fixo para os cartões dentro do carrossel */
+.next-read-section .card {
+    min-width: 300px; /* Largura fixa para cada cartão */
+    height: 400px;    /* Altura consistente */
+    flex-shrink: 0;   /* Impede que encolham */
+}
+
+/* Ajuste para telemóvel */
+@media (max-width: 768px) {
+    .next-read-section .card {
+        min-width: 85vw; /* Ocupa quase todo o ecrã no mobile */
+    }
+}
+
 
 /* =========================================
    9. ABOUT SECTION (Com Gradiente)
