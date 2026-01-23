@@ -392,53 +392,243 @@ a:hover { color: var(--purple-light); }
 
 
 /* =========================================
-   8. ARTICLE SECTION (Layout & Animation)
+   LAYOUT ARKITECT (NOVO - ARTICLE.HTML)
    ========================================= */
+
+/* Override do Body para ser Branco e Limpo */
+.ark-body {
+    background-color: #ffffff; /* Fundo branco conforme imagem */
+    color: #111;
+    font-family: 'Inter', sans-serif; /* Fonte UI limpa */
+    overflow-x: hidden;
+}
+
+.ark-body a { text-decoration: none; color: inherit; }
+
+
+/* --- Main Container --- */
 .ark-main {
-    max-width: 1000px; margin: 60px auto 100px auto; padding: 0 20px; text-align: center;
+    max-width: 1000px;
+    margin: 60px auto 100px auto;
+    padding: 0 20px;
+    text-align: center; /* Centraliza titulos inicialmente */
 }
-.ark-intro { margin-bottom: 50px; }
-.ark-category { font-size: 0.7rem; font-weight: 700; letter-spacing: 2px; color: #888; display: block; margin-bottom: 20px; }
-.ark-title { font-family: 'Orbitron', serif; font-size: 3.5rem; font-weight: 400; line-height: 1.2; margin-bottom: 20px; }
-.ark-subtitle { font-size: 1rem; color: #666; max-width: 600px; margin: 0 auto 50px auto; }
 
+
+/* --- Intro Section --- */
+.ark-category {
+    font-size: 0.7rem;
+    font-weight: 700;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    color: #888;
+    display: block;
+    margin-bottom: 20px;
+}
+
+.ark-title {
+    font-family: 'Arvo', serif; /* Fonte Serifada igual a imagem */
+    font-size: 3.5rem;
+    font-weight: 400; /* Arvo é grossa por natureza, 400 fica elegante */
+    line-height: 1.2;
+    color: #111;
+    margin-bottom: 20px;
+}
+
+.ark-subtitle {
+    font-size: 1rem;
+    color: #666;
+    max-width: 600px;
+    margin: 0 auto 50px auto;
+    line-height: 1.6;
+}
+
+/* Meta Grid (Date, Author, Read) */
 .ark-meta-grid {
-    display: flex; justify-content: center; gap: 60px;
-    margin-bottom: 60px; border-top: 1px solid #eee; padding-top: 30px;
-    max-width: 600px; margin-left: auto; margin-right: auto;
+    display: flex;
+    justify-content: center;
+    gap: 60px;
+    margin-bottom: 60px;
+    border-top: 1px solid #eee;
+    padding-top: 30px;
+    max-width: 600px;
+    margin-left: auto; margin-right: auto;
 }
-.meta-item { display: flex; flex-direction: column; align-items: center; }
-.meta-item .label { font-size: 0.65rem; font-weight: 700; color: #999; }
-.meta-item .value { font-size: 0.85rem; font-weight: 600; }
 
+.meta-item {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 5px;
+}
+
+.meta-item .label {
+    font-size: 0.65rem;
+    font-weight: 700;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+    color: #999;
+}
+
+.meta-item .value {
+    font-size: 0.85rem;
+    font-weight: 600;
+    color: #000;
+}
+
+
+/* --- Hero Image --- */
 .ark-hero-image {
-    width: 100%; height: 500px; border-radius: 30px; overflow: hidden; margin-bottom: 80px;
+    width: 100%;
+    height: 500px;
+    border-radius: 30px; /* Borda bem arredondada */
+    overflow: hidden;
+    margin-bottom: 80px;
+    box-shadow: 0 20px 40px rgba(0,0,0,0.05);
 }
-.ark-hero-image img { width: 100%; height: 100%; object-fit: cover; }
 
+.ark-hero-image img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+
+/* --- Content Wrapper (Sidebar + Text) --- */
 .ark-content-wrapper {
-    display: grid; grid-template-columns: 100px 1fr; gap: 40px; text-align: left; max-width: 800px; margin: 0 auto;
+    display: grid;
+    grid-template-columns: 100px 1fr; /* Sidebar pequena, resto texto */
+    gap: 40px;
+    text-align: left; /* Volta o texto para a esquerda */
+    max-width: 800px; /* Limita a largura para leitura confortável */
+    margin: 0 auto;
 }
-.social-vertical { position: sticky; top: 150px; display: flex; flex-direction: column; gap: 20px; }
-.social-vertical img { width: 20px; cursor: pointer; }
 
-.ark-text-body h2 { font-family: 'Arvo', serif; font-size: 1.8rem; margin-bottom: 20px; font-weight: 400; }
-.ark-text-body h3 { font-family: 'Arvo', serif; font-size: 1.4rem; margin-top: 40px; margin-bottom: 15px; font-weight: 400; }
-.ark-text-body p { font-family: 'Inter', sans-serif; font-size: 1rem; color: #555; margin-bottom: 25px; text-align: justify; }
+/* Sidebar Sticky */
+.ark-sidebar {
+    position: relative;
+}
+.social-vertical {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    position: sticky;
+    top: 50px;
+    color: #000;
+    font-size: 1.2rem;
+}
+.social-vertical a:hover { color: #666; }
 
-/* Animação de Entrada do Artigo (Click to Read) */
-.hidden-content {
-    display: none;
-    opacity: 0;
-    transform: translateY(50px);
-    transition: opacity 0.8s ease, transform 0.8s cubic-bezier(0.2, 0.8, 0.2, 1);
+
+/* Text Styles */
+.ark-text-body h2 {
+    font-family: 'Arvo', serif;
+    font-size: 1.8rem;
+    margin-bottom: 20px;
+    color: #000;
+    font-weight: 400;
 }
-.visible-content {
-    display: block; 
-    opacity: 1;
-    transform: translateY(0);
+
+.ark-text-body h3 {
+    font-family: 'Arvo', serif;
+    font-size: 1.4rem;
+    margin-top: 40px;
+    margin-bottom: 15px;
+    color: #000;
+    font-weight: 400;
 }
-.clickable-card { cursor: pointer; }
+
+.ark-text-body p {
+    font-family: 'Inter', sans-serif;
+    font-size: 1rem;
+    line-height: 1.8;
+    color: #555;
+    margin-bottom: 25px;
+    text-align: justify;
+}
+
+/* Footer Simples */
+.ark-footer {
+    text-align: center;
+    padding: 40px;
+    border-top: 1px solid #eee;
+    font-size: 0.8rem;
+    color: #999;
+}
+
+
+/* Responsividade */
+@media (max-width: 768px) {
+    .ark-header { padding: 20px; flex-direction: column; gap: 20px; }
+    .ark-pill-nav { width: 100%; justify-content: center; display: flex; }
+    
+    .ark-title { font-size: 2rem; }
+    
+    .ark-content-wrapper { grid-template-columns: 1fr; }
+    .ark-sidebar { display: none; /* Esconde sidebar no mobile ou move para baixo */ }
+    
+    .ark-meta-grid { gap: 20px; }
+    .ark-hero-image { height: 300px; border-radius: 15px; }
+}
+
+/* =========================================
+   SECÇÃO "READ NEXT" - ESTILO NEXUS
+   ========================================= */
+
+.next-read-section {
+    max-width: 1200px;
+    margin: 100px auto 60px auto;
+    padding: 0 20px;
+    border-top: 1px solid #f0f0f0;
+    padding-top: 80px;
+}
+
+.next-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 40px;
+}
+
+.next-header h3 {
+    font-family: 'Inter', sans-serif;
+    font-size: 2rem;
+    font-weight: 600;
+    color: #111;
+}
+
+/* Grid de 3 Colunas */
+.next-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 20px;
+}
+
+/* AJUSTE IMPORTANTE: 
+   Forçar altura nos cartões desta secção, já que aqui não temos o "Bento Grid"
+   para definir as linhas automaticamente. */
+.nexus-card-grid .card {
+    height: 400px; /* Mesma altura dos cartões da home */
+    display: block; /* Garante que o link ocupa o espaço todo */
+    text-decoration: none;
+}
+
+/* Reutilizamos as classes .nav-btn do passo anterior */
+.next-nav-buttons { display: flex; gap: 15px; }
+.nav-btn {
+    width: 50px; height: 50px; border-radius: 50%;
+    border: none; background-color: #111; color: #fff;
+    font-size: 1.2rem; cursor: pointer;
+    display: flex; align-items: center; justify-content: center;
+    transition: 0.3s;
+}
+.nav-btn:hover { transform: scale(1.1); background-color: #000; }
+
+/* Responsividade */
+@media (max-width: 900px) {
+    .next-grid { grid-template-columns: 1fr; }
+    .nexus-card-grid .card { height: 350px; } /* Um pouco menor no mobile */
+}
 
 /* =========================================
    9. ABOUT SECTION (Com Gradiente)

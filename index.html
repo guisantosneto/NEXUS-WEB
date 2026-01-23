@@ -167,113 +167,64 @@
         </main>
     </section>
 
-    <section id="article" class="section-wrapper">
-        
-        <div class="carousel-header" style="padding-top: 60px;">
-            <h2>Articles</h2>
-            <p>Select an article to read</p>
-        </div>
-        
-        <div class="carousel-wrapper" style="margin-bottom: 80px;">
-            <button class="carousel-btn prev-btn" id="prevBtn"><i class="ri-arrow-left-s-line"></i></button>
 
-            <div class="carousel-track" id="track">
-                <div class="carousel-card clickable-card">
-                    <div class="card-image-container">
-                        <img src="https://images.unsplash.com/photo-1620712943543-bcc4688e7485?auto=format&fit=crop&w=500&q=80" alt="AI Brain">
-                    </div>
-                    <div class="card-info">
-                        <h3>Generative AI</h3>
-                        <div class="carousel-tags"><span class="carousel-tag">FUTURE</span></div>
-                    </div>
-                </div>
-                
-                <div class="carousel-card clickable-card">
-                    <div class="card-image-container">
-                        <img src="https://images.unsplash.com/photo-1550751827-4bd374c3f58b?auto=format&fit=crop&w=500&q=80" alt="Cyber Security">
-                    </div>
-                    <div class="card-info">
-                        <h3>Cyber Security</h3>
-                        <div class="carousel-tags"><span class="carousel-tag">SEC</span></div>
-                    </div>
-                </div>
 
-                <div class="carousel-card clickable-card">
-                    <div class="card-image-container">
-                        <img src="https://images.unsplash.com/photo-1531746020798-e6953c6e8e04?auto=format&fit=crop&w=500&q=80" alt="Digital Art">
-                    </div>
-                    <div class="card-info">
-                        <h3>Digital Aesthetics</h3>
-                        <div class="carousel-tags"><span class="carousel-tag">DESIGN</span></div>
-                    </div>
-                </div>
-                
-                <div class="carousel-card clickable-card">
-                    <div class="card-image-container">
-                        <img src="https://images.unsplash.com/photo-1485827404703-89b55fcc595e?auto=format&fit=crop&w=500&q=80" alt="Robotics">
-                    </div>
-                    <div class="card-info">
-                        <h3>Modern Robotics</h3>
-                        <div class="carousel-tags"><span class="carousel-tag">TECH</span></div>
-                    </div>
-                </div>
-
-                <div class="carousel-card clickable-card">
-                    <div class="card-image-container">
-                        <img src="https://images.unsplash.com/photo-1518770660439-4636190af475?auto=format&fit=crop&w=500&q=80" alt="Hardware">
-                    </div>
-                    <div class="card-info">
-                        <h3>Hardware Leap</h3>
-                        <div class="carousel-tags"><span class="carousel-tag">CHIPS</span></div>
-                    </div>
+            <section class="next-read-section">
+            <div class="next-header">
+                <h3>Read Our Next Article</h3>
+                <div class="next-nav-buttons">
+                    <button class="nav-btn prev"><i class="ri-arrow-left-line"></i></button>
+                    <button class="nav-btn next"><i class="ri-arrow-right-line"></i></button>
                 </div>
             </div>
 
-            <button class="carousel-btn next-btn" id="nextBtn"><i class="ri-arrow-right-s-line"></i></button>
-        </div>
-        
-        <div class="carousel-nav-bottom" style="margin-bottom: 60px;">
-            <i class="ri-arrow-left-s-line nav-icon" onclick="document.getElementById('prevBtn').click()"></i>
-            <i class="ri-arrow-right-s-line nav-icon" onclick="document.getElementById('nextBtn').click()"></i>
-        </div>
-
-        <div id="article-display" class="hidden-content">
-            <main class="ark-main">
-                <section class="ark-intro">
-                    <span class="ark-category">DESIGN</span>
-                    <h1 class="ark-title">The influence of modern<br>architecture</h1>
-                    <p class="ark-subtitle">Nibh sed pulvinar proin gravida hendrerit lectus a. Consequat mauris nunc congue nisi vitae suscipit tellus mauris a.</p>
-
-                    <div class="ark-meta-grid">
-                        <div class="meta-item"><span class="label">DATE</span><span class="value">July 21, 2026</span></div>
-                        <div class="meta-item"><span class="label">AUTHOR</span><span class="value">Jakob Gronberg</span></div>
-                        <div class="meta-item"><span class="label">READ</span><span class="value">12 Min</span></div>
-                    </div>
-                </section>
-
-                <div class="ark-hero-image">
-                    <img src="https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?q=80&w=2070&auto=format&fit=crop" alt="Modern Architecture">
-                </div>
-
-                <div class="ark-content-wrapper">
-                    <aside class="ark-sidebar">
-                        <div class="social-vertical">
-                            <img src="assets/arrow_nexus_v1_2.svg" alt="Arrow">
+            <div class="next-grid nexus-card-grid">
+                
+                <a href="#" class="card">
+                    <img src="https://images.unsplash.com/photo-1611974765215-e28a264e4eef?q=80&w=800&auto=format&fit=crop" class="card-bg" alt="Finance">
+                    <div class="overlay">
+                        <div class="card-tags">
+                            <span class="card-tag">FINANCE</span>
                         </div>
-                    </aside>
+                        <div class="card-content">
+                            <h3>Optimizing finances</h3>
+                            <p>Strategies for business growth.</p>
+                            <div class="arrow">&rarr;</div>
+                        </div>
+                    </div>
+                </a>
 
-                    <article class="ark-text-body">
-                        <h2>Elit ullamcorper dignissim</h2>
-                        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Elit ullamcorper dignissim cras tincidunt. Enim neque volutpat ac tincidunt vitae.</p>
-                        <p>Dictum at tempor commodo ullamcorper a lacus vestibulum sed. Condimentum mattis pellentesque id nibh tortor id. Nisl condimentum id venenatis a condimentum. Nunc sed blandit libero volutpat sed. Tristique sollicitudin nibh sit amet commodo.</p>
-                        <h3>Hendrerit dolor magna</h3>
-                        <p>Tristique sollicitudin nibh sit amet commodo. Sit amet justo donec enim diam vulputate ut pharetra. Quis imperdiet massa tincidunt nunc pulvinar sapien et ligula ullamcorper. Massa vitae tortor condimentum lacinia quis vel. Hendrerit dolor magna eget est lorem ipsum dolor. Mollis aliquam ut porttitor leo a diam sollicitudin tempor id.</p>
-                    </article>
-                </div>
-            </main>
-        </div>
+                <a href="#" class="card">
+                    <img src="https://images.unsplash.com/photo-1556761175-5973dc0f32e7?q=80&w=800&auto=format&fit=crop" class="card-bg" alt="Meeting">
+                    <div class="overlay">
+                        <div class="card-tags">
+                            <span class="card-tag">WORK</span>
+                            <span class="card-tag">FUTURE</span>
+                        </div>
+                        <div class="card-content">
+                            <h3>Remote automation</h3>
+                            <p>The future of work is here.</p>
+                            <div class="arrow">&rarr;</div>
+                        </div>
+                    </div>
+                </a>
 
-    </section>
+                <a href="#" class="card">
+                    <img src="https://images.unsplash.com/photo-1504711434969-e33886168f5c?q=80&w=800&auto=format&fit=crop" class="card-bg" alt="News">
+                    <div class="overlay">
+                        <div class="card-tags">
+                            <span class="card-tag">NEWS</span>
+                        </div>
+                        <div class="card-content">
+                            <h3>Market Trends 2026</h3>
+                            <p>Global analysis and predictions.</p>
+                            <div class="arrow">&rarr;</div>
+                        </div>
+                    </div>
+                </a>
+
+            </div>
+        </section>
 
     <section id="about" class="about-section">
         <main class="about-container">
