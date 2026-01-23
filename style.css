@@ -99,11 +99,16 @@ nav a:hover::after { width: 100%; }
    ========================================= */
 .hero {
     position: relative;
-    width: 100%;
-    height: 750px;
+    
+    width: 80%;
+    height: 600px;
     border-radius: var(--card-radius);
     overflow: hidden;
-    margin-bottom: 100px;
+    
+    /* ALTERAÇÃO AQUI: */
+    /* 0 (topo) | auto (direita) | 100px (fundo) | auto (esquerda) */
+    margin: 0 auto 100px auto; 
+
     /* Adicionei uma borda subtil e sombra roxa */
     border: 1px solid rgba(255,255,255,0.05);
     box-shadow: 0 0 30px rgba(79, 57, 130, 0.15);
@@ -114,6 +119,7 @@ nav a:hover::after { width: 100%; }
     height: 100%;
     object-fit: cover;
     transition: transform 10s ease; /* Efeito de zoom lento */
+    
 }
 .hero:hover img { transform: scale(1.1); }
 
@@ -147,7 +153,7 @@ nav a:hover::after { width: 100%; }
    ========================================= */
 .topics {
     text-align: center;
-    margin-top: 300px;
+    margin-top: 150px;
     margin-bottom: 100px;
 }
 
@@ -260,6 +266,8 @@ nav a:hover::after { width: 100%; }
     margin: 0 auto;
     
     font-size: 3.5rem; /* Letra grande */
+    font-family: var(--font-serif);
+    font-weight: 500;
     line-height: 1.4;
     text-align: center;
 }
@@ -364,8 +372,9 @@ nav a:hover::after { width: 100%; }
 .card-content { color: white; }
 
 .card-content h3 {
-    font-family: var(--font-highlight);
+    font-family: var(--font-serif);
     font-size: 1.5rem;
+    font-weight: 400;
     line-height: 1.3;
     margin-bottom: 10px;
     text-transform: uppercase;
@@ -405,67 +414,183 @@ nav a:hover::after { width: 100%; }
 
 
 /* =========================================
-   7. TOP LIST SECTION
+   NOVO CARROSSEL (ESTILO "WELCOME")
    ========================================= */
-.top-section { margin-bottom: 200px; }
 
-.top-header {
-    display: flex;
-    align-items: center;
-    gap: 15px;
-    margin-bottom: 30px;
-    justify-content: center;
+.top-section {
+    padding: 60px 0;
+    position: relative;
+    /* Força o fundo escuro nesta secção para igualar a foto, se quiseres */
+    /* background-color: #000; */
 }
 
-.top-header h2 {
-    font-family: var(--font-highlight);
-    font-size: 2.5rem;
-    text-transform: uppercase;
+.carousel-header {
+    text-align: center;
+    margin-bottom: 50px;
     color: var(--text-main);
 }
 
-.pill-badge {
-    font-family: var(--font-highlight);
-    border: 1px solid var(--purple-light);
-    color: var(--purple-light);
-    padding: 5px 15px;
+.carousel-header h2 {
+    font-family: var(--font-highlight); /* Usa a fonte bonita do site */
+    font-size: 3rem;
+    margin-bottom: 10px;
+    font-weight: 400;
+}
+
+.carousel-header p {
+    color: #888;
+    font-size: 1rem;
+}
+
+/* Wrapper principal */
+.carousel-wrapper {
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+/* Track onde estão os cartões */
+.carousel-track {
+    display: flex;
+    gap: 30px;
+    overflow-x: auto;
+    scroll-behavior: smooth;
+    padding: 20px 10px;
+    width: 100%;
+    
+    /* Esconder Scrollbar */
+    scrollbar-width: none; /* Firefox */
+    -ms-overflow-style: none;  /* IE */
+}
+.carousel-track::-webkit-scrollbar { 
+    display: none; /* Chrome/Safari */
+}
+
+/* O Cartão Individual */
+.carousel-card {
+    min-width: 300px;  /* Largura fixa parecida com a foto */
+    height: 420px;
+    background-color: #1a1a1a; /* Fundo escuro do cartão */
     border-radius: 20px;
-    transition: 0.3s;
-    cursor: default;
-}
-.pill-badge:hover {
-    background: var(--purple-light);
-    color: white;
-}
-
-.top-cards {
-    display: grid;
-    grid-template-columns: repeat(3, 1fr);
-    gap: 20px;
-}
-
-.vertical-card {
-    height: 450px;
-    border-radius: var(--card-radius);
     overflow: hidden;
     position: relative;
-    border: 1px solid rgba(255,255,255,0.05);
-    background: #000;
+    display: flex;
+    flex-direction: column;
+    transition: transform 0.3s ease;
+    
+    /* Sombra subtil */
+    box-shadow: 0 10px 30px rgba(0,0,0,0.5);
 }
 
-.vertical-card img {
+/* Efeito de hover no cartão */
+.carousel-card:hover {
+    transform: translateY(-5px);
+}
+
+/* Área da Imagem (ocupa ~65% do topo) */
+.card-image-container {
+    width: 100%;
+    height: 65%;
+    overflow: hidden;
+}
+
+.card-image-container img {
     width: 100%;
     height: 100%;
     object-fit: cover;
-    filter: grayscale(100%) brightness(0.6);
-    transition: 0.5s;
+    transition: transform 0.5s ease;
 }
 
-.vertical-card:hover img {
-    filter: grayscale(0%) brightness(1);
-    transform: scale(1.05);
+/* Área de Informação (em baixo) */
+.card-info {
+    padding: 20px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    background-color: #111; /* Um pouco mais escuro que o topo se quiseres contraste */
+    flex-grow: 1;
+    text-align: center;
+    color: #fff;   
 }
 
+/* --- Atualização para Artigos e Tags --- */
+
+/* Ajuste no título para dar espaço às tags */
+.card-info h3 {
+    margin-bottom: 20px; /* Mais espaço em baixo do título */
+    font-size: 1.2rem;   /* Um pouco maior para ser título de artigo */
+
+    font-weight: 10;
+    font-family: var(--font-serif);
+}
+
+/* Container das Tags */
+.carousel-tags {
+    display: flex;
+    gap: 10px;
+    justify-content: center;
+}
+
+/* Estilo da Tag (Igual ao container de cima) */
+.carousel-tag {
+    background: var(--purple-dark); /* Cor roxa definida nas variáveis */
+    color: white;
+    padding: 6px 16px;
+    border-radius: 50px;
+    font-family: var(--font-highlight);
+    font-size: 0.75rem;
+    font-weight: 700;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+    box-shadow: 0 4px 10px rgba(0,0,0,0.3);
+}
+
+/* Opcional: Efeito hover na tag */
+.carousel-tag:hover {
+    background: var(--purple-light);
+    transform: translateY(-2px);
+    transition: 0.3s;
+}
+/* Botões de Navegação (Setas laterais escondidas, vamos usar as de baixo) */
+.carousel-btn {
+    display: none; /* Escondi as laterais para focar nas de baixo como na foto */
+}
+
+/* Navegação em baixo (Setas Pequenas) */
+.carousel-nav-bottom {
+    display: flex;
+    justify-content: center;
+    gap: 40px;
+    margin-top: 30px;
+}
+
+.nav-icon {
+    background: #222;
+    color: #fff;
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    transition: 0.3s;
+    font-size: 1.2rem;
+}
+
+.nav-icon:hover {
+    background: #444;
+}
+
+/* Responsividade */
+@media (max-width: 768px) {
+    .carousel-card {
+        min-width: 260px;
+        height: 380px;
+    }
+}
 
 /* =========================================
    8. FOOTER

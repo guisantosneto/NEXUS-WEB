@@ -99,3 +99,25 @@ document.addEventListener('DOMContentLoaded', () => {
         window.addEventListener('resize', stickyReveal);
         stickyReveal(); // Iniciar
     }
+
+
+ /* ------------------------------------------------
+   5. Lógica do Carrossel (Top Section)
+------------------------------------------------ */
+// Mudámos o nome de 'track' para 'carouselTrack' para não haver conflitos
+const carouselTrack = document.getElementById('track');
+const prevBtn = document.getElementById('prevBtn');
+const nextBtn = document.getElementById('nextBtn');
+
+if (carouselTrack && prevBtn && nextBtn) {
+    nextBtn.addEventListener('click', () => {
+        // Desliza para a direita a largura de um cartão + gap (aprox 330px)
+        carouselTrack.scrollBy({ left: 330, behavior: 'smooth' });
+    });
+
+    prevBtn.addEventListener('click', () => {
+        // Desliza para a esquerda
+        carouselTrack.scrollBy({ left: -330, behavior: 'smooth' });
+    });
+}
+    

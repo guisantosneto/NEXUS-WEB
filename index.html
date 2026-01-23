@@ -35,7 +35,7 @@
         </div>
     </header>
 
-    <main class="ark-main">
+    
         <section class="hero hidden">
             <video autoplay muted loop playsinline>
                 <source src="assets/grid_video.mp4" type="video/mp4">
@@ -45,6 +45,23 @@
                 <h1>Discover the ideas and breakthroughs redefining our world</h1>
             </div>
         </section>
+
+    <main class="ark-main">
+
+        <div class="mini-articles">
+                <div class="mini-item">
+                    <h4>OpenAI releases GPT Store</h4>
+                    <p>Create custom versions of ChatGPT.</p>
+                </div>
+                <div class="mini-item">
+                    <h4>Mercedes Drives Africa</h4>
+                    <p>AI power in driving directions.</p>
+                </div>
+                <div class="mini-item">
+                    <h4>New Regulations</h4>
+                    <p>EU approves AI act.</p>
+                </div>
+            </div>
 
         <section class="topics hidden">
             <h2>Topics</h2>
@@ -91,20 +108,7 @@
                 </h3>
             </div>     
                    
-            <div class="mini-articles">
-                <div class="mini-item">
-                    <h4>OpenAI releases GPT Store</h4>
-                    <p>Create custom versions of ChatGPT.</p>
-                </div>
-                <div class="mini-item">
-                    <h4>Mercedes Drives Africa</h4>
-                    <p>AI power in driving directions.</p>
-                </div>
-                <div class="mini-item">
-                    <h4>New Regulations</h4>
-                    <p>EU approves AI act.</p>
-                </div>
-            </div>
+            
         </section>
 
         <section class="news-grid hidden">
@@ -172,36 +176,158 @@
         </section>
 
         <section class="top-section hidden">
-            <div class="top-header">
-                <h2>TOP</h2>
-                <span class="pill-badge">Open-Source AI</span>
+            <div class="carousel-header">
+                <h2>Articles</h2>
+                <p>Browse here</p>
             </div>
             
-            <div class="top-cards">
-                <div class="vertical-card">
-                    <img src="https://images.unsplash.com/photo-1677442136019-21780ecad995?auto=format&fit=crop&w=800&q=80" alt="AI Agent">
-                    <div class="overlay">
-                        <div class="card-content">
-                            <h3>AI Agent Tools</h3>
+            <div class="carousel-wrapper">
+                <button class="carousel-btn prev-btn" id="prevBtn">
+                    <i class="ri-arrow-left-s-line"></i>
+                </button>
+
+            <div class="carousel-track" id="track">
+                
+                <div class="carousel-card">
+                    <div class="card-image-container">
+                        <img src="https://images.unsplash.com/photo-1620712943543-bcc4688e7485?auto=format&fit=crop&w=500&q=80" alt="AI Brain">
+                    </div>
+                    <div class="card-info">
+                        <h3>Generative AI</h3>
+                        <div class="carousel-tags">
+                            <span class="carousel-tag">FUTURE</span>
+                            <span class="carousel-tag">LLM</span>
                         </div>
                     </div>
                 </div>
-                <div class="vertical-card">
-                    <img src="https://images.unsplash.com/photo-1620712943543-bcc4688e7485?auto=format&fit=crop&w=800&q=80" alt="Robotics">
-                    <div class="overlay">
-                        <div class="card-content">
-                            <h3>Machine Learning Libs</h3>
+
+                <div class="carousel-card">
+                    <div class="card-image-container">
+                        <img src="https://images.unsplash.com/photo-1550751827-4bd374c3f58b?auto=format&fit=crop&w=500&q=80" alt="Cyber Security">
+                    </div>
+                    <div class="card-info">
+                        <h3>Cyber Security</h3>
+                        <div class="carousel-tags">
+                            <span class="carousel-tag">SEC</span>
+                            <span class="carousel-tag">DATA</span>
                         </div>
                     </div>
                 </div>
-                <div class="vertical-card">
-                    <img src="https://images.unsplash.com/photo-1535378437327-1075d7b6863d?auto=format&fit=crop&w=800&q=80" alt="Code">
-                    <div class="overlay">
-                        <div class="card-content">
-                            <h3>Vision Models</h3>
+
+                <div class="carousel-card">
+                    <div class="card-image-container">
+                        <img src="https://images.unsplash.com/photo-1531746020798-e6953c6e8e04?auto=format&fit=crop&w=500&q=80" alt="Digital Art">
+                    </div>
+                    <div class="card-info">
+                        <h3>Digital Aesthetics</h3>
+                        <div class="carousel-tags">
+                            <span class="carousel-tag">DESIGN</span>
+                            <span class="carousel-tag">ART</span>
                         </div>
                     </div>
                 </div>
+
+                <div class="carousel-card">
+                    <div class="card-image-container">
+                        <img src="https://images.unsplash.com/photo-1485827404703-89b55fcc595e?auto=format&fit=crop&w=500&q=80" alt="Robotics">
+                    </div>
+                    <div class="card-info">
+                        <h3>Modern Robotics</h3>
+                        <div class="carousel-tags">
+                            <span class="carousel-tag">TECH</span>
+                            <span class="carousel-tag">BOTS</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="carousel-card">
+                    <div class="card-image-container">
+                        <img src="https://images.unsplash.com/photo-1518770660439-4636190af475?auto=format&fit=crop&w=500&q=80" alt="Hardware">
+                    </div>
+                    <div class="card-info">
+                        <h3>Hardware Leap</h3>
+                        <div class="carousel-tags">
+                            <span class="carousel-tag">CHIPS</span>
+                            <span class="carousel-tag">OPS</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="carousel-card">
+                    <div class="card-image-container">
+                        <img src="https://images.unsplash.com/photo-1526374965328-7f61d4dc18c5?auto=format&fit=crop&w=500&q=80" alt="Matrix">
+                    </div>
+                    <div class="card-info">
+                        <h3>Neural Networks</h3>
+                        <div class="carousel-tags">
+                            <span class="carousel-tag">CODE</span>
+                            <span class="carousel-tag">NET</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="carousel-card">
+                    <div class="card-image-container">
+                        <img src="https://images.unsplash.com/photo-1593508512255-86ab42a8e620?auto=format&fit=crop&w=500&q=80" alt="VR">
+                    </div>
+                    <div class="card-info">
+                        <h3>Virtual Reality</h3>
+                        <div class="carousel-tags">
+                            <span class="carousel-tag">VR</span>
+                            <span class="carousel-tag">AR</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="carousel-card">
+                    <div class="card-image-container">
+                        <img src="https://images.unsplash.com/photo-1519389950473-47ba0277781c?auto=format&fit=crop&w=500&q=80" alt="Work">
+                    </div>
+                    <div class="card-info">
+                        <h3>Future of Work</h3>
+                        <div class="carousel-tags">
+                            <span class="carousel-tag">JOBS</span>
+                            <span class="carousel-tag">REMOTE</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="carousel-card">
+                    <div class="card-image-container">
+                        <img src="https://images.unsplash.com/photo-1551288049-bebda4e38f71?auto=format&fit=crop&w=500&q=80" alt="Analytics">
+                    </div>
+                    <div class="card-info">
+                        <h3>Big Data Analytics</h3>
+                        <div class="carousel-tags">
+                            <span class="carousel-tag">DATA</span>
+                            <span class="carousel-tag">STATS</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="carousel-card">
+                    <div class="card-image-container">
+                        <img src="https://images.unsplash.com/photo-1614728853913-1e22ba863d0c?auto=format&fit=crop&w=500&q=80" alt="Cloud">
+                    </div>
+                    <div class="card-info">
+                        <h3>Cloud Systems</h3>
+                        <div class="carousel-tags">
+                            <span class="carousel-tag">CLOUD</span>
+                            <span class="carousel-tag">WEB</span>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+
+                <button class="carousel-btn next-btn" id="nextBtn">
+                    <i class="ri-arrow-right-s-line"></i>
+                </button>
+            </div>
+            
+            <div class="carousel-nav-bottom">
+                <i class="ri-arrow-left-s-line nav-icon" onclick="document.getElementById('prevBtn').click()"></i>
+                <i class="ri-arrow-right-s-line nav-icon" onclick="document.getElementById('nextBtn').click()"></i>
             </div>
         </section>
     
