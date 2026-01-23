@@ -3,52 +3,51 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Nexus Landing Page</title>
+    <title>Nexus | One Page</title>
     
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Arvo:wght@400;700&family=Inter:wght@300;400;500;600&display=swap,700&family=Orbitron:wght@400;500;700;900&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Arvo:wght@400;700&family=Inter:wght@300;400;500;600&family=Orbitron:wght@400;500;700;900&display=swap" rel="stylesheet">
     <link href="https://cdn.jsdelivr.net/npm/remixicon@3.5.0/fonts/remixicon.css" rel="stylesheet">
+    
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
 
-    
-    <header class="ark-header">
+    <header class="ark-header sticky-header">
         <div class="logo">
-            <img src="assets\nexuslogo_v3.svg" alt="Nexus Logo">
+            <img src="assets/nexuslogo_v3.svg" alt="Nexus Logo">
         </div>
         
         <nav class="ark-pill-nav">
             <ul>
-                <li><a href="#" class="active">Projects</a></li>
-                <li><a href="article.html">Article</a></li>
-                <li><a href="about.html">About</a></li>
-                <li><a href="magazine.html">Magazine</a></li>
+                <li><a href="#projects" class="nav-link active">Projects</a></li>
+                <li><a href="#article" class="nav-link">Article</a></li>
+                <li><a href="#about" class="nav-link">About</a></li>
+                <li><a href="magazine.html" class="nav-link">Magazine</a></li>
             </ul>
         </nav>
 
         <div class="ark-socials-top">
-            <img src="assets\arrow_nexus_v1_2.svg" alt="Arrow">
-            <img src="assets\arrow_nexus_v1_2.svg" alt="Arrow">
-            <img src="assets\arrow_nexus_v1_2.svg" alt="Arrow">
+            <img src="assets/arrow_nexus_v1_2.svg" alt="Arrow">
+            <img src="assets/arrow_nexus_v1_2.svg" alt="Arrow">
+            <img src="assets/arrow_nexus_v1_2.svg" alt="Arrow">
         </div>
     </header>
 
-    
-        <section class="hero hidden">
+    <section id="projects">
+        <div class="hero hidden">
             <video autoplay muted loop playsinline>
                 <source src="assets/grid_video.mp4" type="video/mp4">
-                    O seu navegador não suporta este vídeo.
+                O seu navegador não suporta este vídeo.
             </video>
             <div class="hero-text">
                 <h1>Discover the ideas and breakthroughs redefining our world</h1>
             </div>
-        </section>
+        </div>
 
-    <main class="ark-main">
-
-        <div class="mini-articles">
+        <main class="ark-main">
+            <div class="mini-articles">
                 <div class="mini-item">
                     <h4>OpenAI releases GPT Store</h4>
                     <p>Create custom versions of ChatGPT.</p>
@@ -63,275 +62,264 @@
                 </div>
             </div>
 
-        <section class="topics hidden">
-            <h2>Topics</h2>
-    
-            <div class="scroller" data-animated="true" style="margin-bottom: 20px;">
-                <div class="tag-list">
-                <div class="tag">Generative AI</div>
-                <div class="tag">AI Ethics</div>
-                <div class="tag">Governance</div>
-                <div class="tag">Future Tech</div>
-                <div class="tag">Infrastructure</div>
-                <div class="tag">Learning</div>
+            <section class="topics hidden">
+                <h2>Topics</h2>
+                <div class="scroller" data-animated="true" style="margin-bottom: 20px;">
+                    <div class="tag-list">
+                        <div class="tag">Generative AI</div>
+                        <div class="tag">AI Ethics</div>
+                        <div class="tag">Governance</div>
+                        <div class="tag">Future Tech</div>
+                        <div class="tag">Infrastructure</div>
+                        <div class="tag">Learning</div>
+                    </div>
                 </div>
-            </div>
+                <div class="scroller reverse" data-animated="true" style="margin-bottom: 20px;">
+                    <div class="tag-list">
+                        <div class="tag">Open Source</div>
+                        <div class="tag">Industry</div>
+                        <div class="tag">Analytics</div>
+                        <div class="tag">Automation</div>
+                        <div class="tag">Robotics</div>
+                        <div class="tag">Neural Networks</div>
+                    </div>
+                </div>
+                <div class="scroller" data-animated="true">
+                    <div class="tag-list">
+                        <div class="tag">ChatGPT</div>
+                        <div class="tag">MidJourney</div>
+                        <div class="tag">Dall-E</div>
+                        <div class="tag">Stable Diffusion</div>
+                        <div class="tag">LLMs</div>
+                        <div class="tag">Python</div>
+                    </div>
+                </div>
+            </section>
 
-        <div class="scroller reverse" data-animated="true" style="margin-bottom: 20px;">
-            <div class="tag-list">
-                <div class="tag">Open Source</div>
-                <div class="tag">Industry</div>
-                <div class="tag">Analytics</div>
-                <div class="tag">Automation</div>
-                <div class="tag">Robotics</div>
-                <div class="tag">Neural Networks</div>
-            </div>
+            <section class="info-section hidden">
+                <div class="text-scroll-track">
+                    <h3 class="reveal-text sticky-text">
+                       “We should not fear artificial intelligence itself, but intelligence without ethics.” 
+                    </h3>
+                </div>     
+            </section>
+
+            <section class="news-grid hidden">
+                <div class="card">
+                    <img src="https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?auto=format&fit=crop&w=800&q=80" class="card-bg" alt="Building">
+                    <div class="overlay">
+                        <div class="card-tags">
+                            <span class="card-tag">NEWS</span>
+                            <span class="card-tag">PATENT</span>
+                        </div>
+                        <div class="card-content">
+                            <h3>US Patent Office issues new guidelines</h3>
+                            <p>AI assisted inventions require human inventor.</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="card">
+                    <img src="https://images.unsplash.com/photo-1556761175-5973dc0f32e7?auto=format&fit=crop&w=800&q=80" class="card-bg" alt="Tech Office">
+                    <div class="overlay">
+                        <div class="card-tags">
+                            <span class="card-tag">TECH</span>
+                            <span class="card-tag">5G</span>
+                        </div>
+                        <div class="card-content">
+                            <h3>Nokia's new strategy</h3>
+                            <p>Connecting people in the age of AI.</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="card dark">
+                    <div class="chart-placeholder">
+                       <div style="display:flex; gap:20px; align-items:flex-end; height:100px;">
+                           <div style="width:40px; height:60%; background:#3b82f6; border-radius:5px;"></div>
+                           <div style="width:40px; height:90%; background:#fff; border-radius:5px;"></div>
+                           <div style="width:40px; height:40%; background:#ef4444; border-radius:5px;"></div>
+                       </div>
+                    </div>
+                    <div class="overlay">
+                        <div class="card-tags">
+                            <span class="card-tag">DATA</span>
+                            <span class="card-tag">STATS</span>
+                        </div>
+                        <div class="card-content">
+                            <h3>Market Analysis 2024</h3>
+                            <p>Growth projections for generative AI.</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="card">
+                    <img src="https://images.unsplash.com/photo-1589829085413-56de8ae18c73?auto=format&fit=crop&w=800&q=80" class="card-bg" alt="Justice Statue">
+                    <div class="overlay">
+                        <div class="card-tags">
+                            <span class="card-tag">LAW</span>
+                            <span class="card-tag">POLICY</span>
+                        </div>
+                        <div class="card-content">
+                            <h3>AI and the rule of law</h3>
+                            <p>Regional training for justice officials.</p>
+                        </div>
+                    </div>
+                </div>
+            </section>
+        </main>
+    </section>
+
+    <section id="article" class="section-wrapper">
+        
+        <div class="carousel-header" style="padding-top: 60px;">
+            <h2>Articles</h2>
+            <p>Select an article to read</p>
         </div>
-
-        <div class="scroller" data-animated="true">
-            <div class="tag-list">
-                <div class="tag">ChatGPT</div>
-                <div class="tag">MidJourney</div>
-                <div class="tag">Dall-E</div>
-                <div class="tag">Stable Diffusion</div>
-                <div class="tag">LLMs</div>
-                <div class="tag">Python</div>
-            </div>
-        </div>
-        </section>
-
-        <section class="info-section hidden">
-            
-            <div class="text-scroll-track">
-                <h3 class="reveal-text sticky-text">
-                   “We should not fear artificial intelligence itself, but intelligence without ethics.” 
-                </h3>
-            </div>     
-                   
-            
-        </section>
-
-        <section class="news-grid hidden">
-            <div class="card">
-                <img src="https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?auto=format&fit=crop&w=800&q=80" class="card-bg" alt="Building">
-                <div class="overlay">
-                    <div class="card-tags">
-                        <span class="card-tag">NEWS</span>
-                        <span class="card-tag">PATENT</span>
-                    </div>
-                    <div class="card-content">
-                        <h3>US Patent Office issues new guidelines</h3>
-                        <p>New rules clarify that AI assisted inventions still require a human inventor.</p>
-                    </div>
-                </div>
-            </div>
-
-            <div class="card">
-                <img src="https://images.unsplash.com/photo-1556761175-5973dc0f32e7?auto=format&fit=crop&w=800&q=80" class="card-bg" alt="Tech Office">
-                <div class="overlay">
-                    <div class="card-tags">
-                        <span class="card-tag">TECH</span>
-                        <span class="card-tag">5G</span>
-                    </div>
-                    <div class="card-content">
-                        <h3>Nokia's new strategy</h3>
-                        <p>Connecting people in the age of AI and automation.</p>
-                    </div>
-                </div>
-            </div>
-
-            <div class="card dark">
-                <div class="chart-placeholder">
-                   <div style="display:flex; gap:20px; align-items:flex-end; height:100px;">
-                       <div style="width:40px; height:60%; background:#3b82f6; border-radius:5px;"></div>
-                       <div style="width:40px; height:90%; background:#fff; border-radius:5px;"></div>
-                       <div style="width:40px; height:40%; background:#ef4444; border-radius:5px;"></div>
-                   </div>
-                </div>
-                <div class="overlay">
-                    <div class="card-tags">
-                        <span class="card-tag">DATA</span>
-                        <span class="card-tag">STATS</span>
-                    </div>
-                    <div class="card-content">
-                        <h3>Market Analysis 2024</h3>
-                        <p>Growth projections for generative AI sectors.</p>
-                    </div>
-                </div>
-            </div>
-
-            <div class="card">
-                <img src="https://images.unsplash.com/photo-1589829085413-56de8ae18c73?auto=format&fit=crop&w=800&q=80" class="card-bg" alt="Justice Statue">
-                <div class="overlay">
-                    <div class="card-tags">
-                        <span class="card-tag">LAW</span>
-                        <span class="card-tag">POLICY</span>
-                    </div>
-                    <div class="card-content">
-                        <h3>AI and the rule of law</h3>
-                        <p>Regional training for justice officials across Asia-Pacific.</p>
-                    </div>
-                </div>
-            </div>
-        </section>
-
-        <section class="top-section hidden">
-            <div class="carousel-header">
-                <h2>Articles</h2>
-                <p>Browse here</p>
-            </div>
-            
-            <div class="carousel-wrapper">
-                <button class="carousel-btn prev-btn" id="prevBtn">
-                    <i class="ri-arrow-left-s-line"></i>
-                </button>
+        
+        <div class="carousel-wrapper" style="margin-bottom: 80px;">
+            <button class="carousel-btn prev-btn" id="prevBtn"><i class="ri-arrow-left-s-line"></i></button>
 
             <div class="carousel-track" id="track">
-                
-                <div class="carousel-card">
+                <div class="carousel-card clickable-card">
                     <div class="card-image-container">
                         <img src="https://images.unsplash.com/photo-1620712943543-bcc4688e7485?auto=format&fit=crop&w=500&q=80" alt="AI Brain">
                     </div>
                     <div class="card-info">
                         <h3>Generative AI</h3>
-                        <div class="carousel-tags">
-                            <span class="carousel-tag">FUTURE</span>
-                            <span class="carousel-tag">LLM</span>
-                        </div>
+                        <div class="carousel-tags"><span class="carousel-tag">FUTURE</span></div>
                     </div>
                 </div>
-
-                <div class="carousel-card">
+                
+                <div class="carousel-card clickable-card">
                     <div class="card-image-container">
                         <img src="https://images.unsplash.com/photo-1550751827-4bd374c3f58b?auto=format&fit=crop&w=500&q=80" alt="Cyber Security">
                     </div>
                     <div class="card-info">
                         <h3>Cyber Security</h3>
-                        <div class="carousel-tags">
-                            <span class="carousel-tag">SEC</span>
-                            <span class="carousel-tag">DATA</span>
-                        </div>
+                        <div class="carousel-tags"><span class="carousel-tag">SEC</span></div>
                     </div>
                 </div>
 
-                <div class="carousel-card">
+                <div class="carousel-card clickable-card">
                     <div class="card-image-container">
                         <img src="https://images.unsplash.com/photo-1531746020798-e6953c6e8e04?auto=format&fit=crop&w=500&q=80" alt="Digital Art">
                     </div>
                     <div class="card-info">
                         <h3>Digital Aesthetics</h3>
-                        <div class="carousel-tags">
-                            <span class="carousel-tag">DESIGN</span>
-                            <span class="carousel-tag">ART</span>
-                        </div>
+                        <div class="carousel-tags"><span class="carousel-tag">DESIGN</span></div>
                     </div>
                 </div>
-
-                <div class="carousel-card">
+                
+                <div class="carousel-card clickable-card">
                     <div class="card-image-container">
                         <img src="https://images.unsplash.com/photo-1485827404703-89b55fcc595e?auto=format&fit=crop&w=500&q=80" alt="Robotics">
                     </div>
                     <div class="card-info">
                         <h3>Modern Robotics</h3>
-                        <div class="carousel-tags">
-                            <span class="carousel-tag">TECH</span>
-                            <span class="carousel-tag">BOTS</span>
-                        </div>
+                        <div class="carousel-tags"><span class="carousel-tag">TECH</span></div>
                     </div>
                 </div>
 
-                <div class="carousel-card">
+                <div class="carousel-card clickable-card">
                     <div class="card-image-container">
                         <img src="https://images.unsplash.com/photo-1518770660439-4636190af475?auto=format&fit=crop&w=500&q=80" alt="Hardware">
                     </div>
                     <div class="card-info">
                         <h3>Hardware Leap</h3>
-                        <div class="carousel-tags">
-                            <span class="carousel-tag">CHIPS</span>
-                            <span class="carousel-tag">OPS</span>
-                        </div>
+                        <div class="carousel-tags"><span class="carousel-tag">CHIPS</span></div>
                     </div>
                 </div>
-
-                <div class="carousel-card">
-                    <div class="card-image-container">
-                        <img src="https://images.unsplash.com/photo-1526374965328-7f61d4dc18c5?auto=format&fit=crop&w=500&q=80" alt="Matrix">
-                    </div>
-                    <div class="card-info">
-                        <h3>Neural Networks</h3>
-                        <div class="carousel-tags">
-                            <span class="carousel-tag">CODE</span>
-                            <span class="carousel-tag">NET</span>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="carousel-card">
-                    <div class="card-image-container">
-                        <img src="https://images.unsplash.com/photo-1593508512255-86ab42a8e620?auto=format&fit=crop&w=500&q=80" alt="VR">
-                    </div>
-                    <div class="card-info">
-                        <h3>Virtual Reality</h3>
-                        <div class="carousel-tags">
-                            <span class="carousel-tag">VR</span>
-                            <span class="carousel-tag">AR</span>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="carousel-card">
-                    <div class="card-image-container">
-                        <img src="https://images.unsplash.com/photo-1519389950473-47ba0277781c?auto=format&fit=crop&w=500&q=80" alt="Work">
-                    </div>
-                    <div class="card-info">
-                        <h3>Future of Work</h3>
-                        <div class="carousel-tags">
-                            <span class="carousel-tag">JOBS</span>
-                            <span class="carousel-tag">REMOTE</span>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="carousel-card">
-                    <div class="card-image-container">
-                        <img src="https://images.unsplash.com/photo-1551288049-bebda4e38f71?auto=format&fit=crop&w=500&q=80" alt="Analytics">
-                    </div>
-                    <div class="card-info">
-                        <h3>Big Data Analytics</h3>
-                        <div class="carousel-tags">
-                            <span class="carousel-tag">DATA</span>
-                            <span class="carousel-tag">STATS</span>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="carousel-card">
-                    <div class="card-image-container">
-                        <img src="https://images.unsplash.com/photo-1614728853913-1e22ba863d0c?auto=format&fit=crop&w=500&q=80" alt="Cloud">
-                    </div>
-                    <div class="card-info">
-                        <h3>Cloud Systems</h3>
-                        <div class="carousel-tags">
-                            <span class="carousel-tag">CLOUD</span>
-                            <span class="carousel-tag">WEB</span>
-                        </div>
-                    </div>
-                </div>
-
             </div>
 
-                <button class="carousel-btn next-btn" id="nextBtn">
-                    <i class="ri-arrow-right-s-line"></i>
-                </button>
-            </div>
-            
-            <div class="carousel-nav-bottom">
-                <i class="ri-arrow-left-s-line nav-icon" onclick="document.getElementById('prevBtn').click()"></i>
-                <i class="ri-arrow-right-s-line nav-icon" onclick="document.getElementById('nextBtn').click()"></i>
-            </div>
-        </section>
-    
-    </main>
+            <button class="carousel-btn next-btn" id="nextBtn"><i class="ri-arrow-right-s-line"></i></button>
+        </div>
+        
+        <div class="carousel-nav-bottom" style="margin-bottom: 60px;">
+            <i class="ri-arrow-left-s-line nav-icon" onclick="document.getElementById('prevBtn').click()"></i>
+            <i class="ri-arrow-right-s-line nav-icon" onclick="document.getElementById('nextBtn').click()"></i>
+        </div>
+
+        <div id="article-display" class="hidden-content">
+            <main class="ark-main">
+                <section class="ark-intro">
+                    <span class="ark-category">DESIGN</span>
+                    <h1 class="ark-title">The influence of modern<br>architecture</h1>
+                    <p class="ark-subtitle">Nibh sed pulvinar proin gravida hendrerit lectus a. Consequat mauris nunc congue nisi vitae suscipit tellus mauris a.</p>
+
+                    <div class="ark-meta-grid">
+                        <div class="meta-item"><span class="label">DATE</span><span class="value">July 21, 2026</span></div>
+                        <div class="meta-item"><span class="label">AUTHOR</span><span class="value">Jakob Gronberg</span></div>
+                        <div class="meta-item"><span class="label">READ</span><span class="value">12 Min</span></div>
+                    </div>
+                </section>
+
+                <div class="ark-hero-image">
+                    <img src="https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?q=80&w=2070&auto=format&fit=crop" alt="Modern Architecture">
+                </div>
+
+                <div class="ark-content-wrapper">
+                    <aside class="ark-sidebar">
+                        <div class="social-vertical">
+                            <img src="assets/arrow_nexus_v1_2.svg" alt="Arrow">
+                        </div>
+                    </aside>
+
+                    <article class="ark-text-body">
+                        <h2>Elit ullamcorper dignissim</h2>
+                        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Elit ullamcorper dignissim cras tincidunt. Enim neque volutpat ac tincidunt vitae.</p>
+                        <p>Dictum at tempor commodo ullamcorper a lacus vestibulum sed. Condimentum mattis pellentesque id nibh tortor id. Nisl condimentum id venenatis a condimentum. Nunc sed blandit libero volutpat sed. Tristique sollicitudin nibh sit amet commodo.</p>
+                        <h3>Hendrerit dolor magna</h3>
+                        <p>Tristique sollicitudin nibh sit amet commodo. Sit amet justo donec enim diam vulputate ut pharetra. Quis imperdiet massa tincidunt nunc pulvinar sapien et ligula ullamcorper. Massa vitae tortor condimentum lacinia quis vel. Hendrerit dolor magna eget est lorem ipsum dolor. Mollis aliquam ut porttitor leo a diam sollicitudin tempor id.</p>
+                    </article>
+                </div>
+            </main>
+        </div>
+
+    </section>
+
+    <section id="about" class="about-section">
+        <main class="about-container">
+            <section class="about-hero">
+                <span class="pill-badge">EST. 2026</span>
+                <h1>Intelligence <br> <span class="text-highlight">Without Limits</span></h1>
+                <p class="intro-text">
+                    Nexus is not just a news site. It is a digital manifesto on the intersection of human ethics and synthetic evolution.
+                </p>
+            </section>
+
+            <section class="info-grid">
+                <div class="info-card">
+                    <h3>The Project</h3>
+                    <p>Developed within the scope of the <strong>Editorial Laboratory</strong> course, exploring pure HTML/CSS/JS.</p>
+                </div>
+                <div class="info-card">
+                    <h3>The Mission</h3>
+                    <p>Demystifying Artificial Intelligence through editorial design and ethical curation.</p>
+                </div>
+                <div class="info-card highlight">
+                    <h3>Technology</h3>
+                    <p>Vanilla Stack. No frameworks. Just pure code and performant animations.</p>
+                </div>
+            </section>
+
+            <section class="team-section">
+                <h2>Who We Are</h2>
+                <div class="team-grid">
+                    <div class="member-card">
+                        <div class="member-img"><div class="placeholder-avatar"></div></div>
+                        <h4>José Gomes</h4><span>Full Stack Developer</span>
+                    </div>
+                    <div class="member-card">
+                        <div class="member-img"><div class="placeholder-avatar"></div></div>
+                        <h4>Vicente Mota</h4><span>UI/UX Designer</span>
+                    </div>
+                    <div class="member-card">
+                        <div class="member-img"><div class="placeholder-avatar"></div></div>
+                        <h4>Guilherme Neto</h4><span>Content Manager</span>
+                    </div>
+                </div>
+            </section>
+        </main>
+    </section>
+
     <footer class="site-footer">
         <div class="footer-content">
             <div class="footer-logo">NEXUS</div>
@@ -342,11 +330,10 @@
             </nav>
         </div>
         <div class="footer-bottom">
-            <p>© 2026 Nexus. All rights reserved.</p>
+            <p>© 2026 Nexus Project. Master in Computer Engineering.</p>
         </div>
     </footer>
 
     <script src="script.js"></script>
-
 </body>
 </html>
