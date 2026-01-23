@@ -428,7 +428,7 @@ a:hover { color: var(--purple-light); }
 }
 
 .ark-title {
-    font-family: 'Arvo', serif; /* Fonte Serifada igual a imagem */
+    font-family: 'Orbitron', serif; /* Fonte Serifada igual a imagem */
     font-size: 3.5rem;
     font-weight: 400; /* Arvo é grossa por natureza, 400 fica elegante */
     line-height: 1.2;
