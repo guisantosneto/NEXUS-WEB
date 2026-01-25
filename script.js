@@ -8,7 +8,7 @@ document.addEventListener('DOMContentLoaded', () => {
             id: 1, 
             title: "Digital Co-Creation", 
             subtitle: "The new engine.", 
-            tags: ["DESIGN", "ART"], 
+            tags: ["GRAPHIC DESIGN", "DIGITAL ART"], 
             // Imagem igual ao news1.html
             img: "https://images.pexels.com/photos/31414506/pexels-photo-31414506.jpeg", 
             link: "news1.html" 
@@ -35,7 +35,7 @@ document.addEventListener('DOMContentLoaded', () => {
             id: 4, 
             title: "Disinformation", 
             subtitle: "Synthetic reality.", 
-            tags: ["TRUTH", "DEEPFAKE"], 
+            tags: ["FAKE NEWS", "DEEPFAKE"], 
             // Imagem igual ao news4.html
             img: "https://images.pexels.com/photos/5062772/pexels-photo-5062772.jpeg", 
             link: "news4.html" 
@@ -44,7 +44,7 @@ document.addEventListener('DOMContentLoaded', () => {
             id: 5, 
             title: "AI in Healthcare", 
             subtitle: "The new pulse.", 
-            tags: ["HEALTH", "SCIENCE"], 
+            tags: ["HEALTHCARE", "MEDICAL AI"], 
             // Imagem igual ao news5.html
             img: "https://images.pexels.com/photos/18069423/pexels-photo-18069423.png", 
             link: "news5.html" 
@@ -80,7 +80,7 @@ document.addEventListener('DOMContentLoaded', () => {
             id: 9, 
             title: "The AI Economy", 
             subtitle: "Synthetic abundance.", 
-            tags: ["ECONOMY", "PRODUCTIVITY"], 
+            tags: ["NEW MARKETS", "PRODUCTIVITY"], 
             // Imagem CORRIGIDA (igual ao news9.html)
             img: "https://images.unsplash.com/photo-1688380692117-63178554d76d?q=80&w=1170&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D", 
             link: "news9.html" 
