@@ -267,102 +267,90 @@ document.addEventListener('DOMContentLoaded', () => {
 
 
 /* =================================================================
-       MAGAZINE 3D FLIP LOGIC
+       MAGAZINE 3D FLIP LOGIC (Dinâmico para 5 páginas)
        ================================================================= */
-    const prevBtn = document.querySelector("#prev-page-btn");
-    const nextBtn = document.querySelector("#next-page-btn");
-    const book = document.querySelector("#book");
+const prevBtn = document.querySelector("#prev-page-btn");
+const nextBtn = document.querySelector("#next-page-btn");
+const book = document.querySelector("#book");
 
-    const paper1 = document.querySelector("#p1");
-    const paper2 = document.querySelector("#p2");
-    const paper3 = document.querySelector("#p3");
+// Seleciona todas as páginas presentes no HTML
+const papers = Array.from(document.querySelectorAll(".paper"));
 
-    // Lógica de Estado
-    let currentLocation = 1;
-    const numOfPapers = 3;
-    const maxLocation = numOfPapers + 1;
+let currentLocation = 1;
+const numOfPapers = papers.length;
+const maxLocation = numOfPapers + 1;
 
-    function openBook() {
-        book.style.transform = "translateX(50%)"; // Move o livro para a direita para centrar quando aberto
-        prevBtn.style.transform = "translateX(-180px)";
-        nextBtn.style.transform = "translateX(180px)";
+function openBook() {
+    book.style.transform = "translateX(50%)";
+    prevBtn.style.transform = "translateX(-180px)";
+    nextBtn.style.transform = "translateX(180px)";
+}
+
+function closeBook(isAtBeginning) {
+    if (isAtBeginning) {
+        book.style.transform = "translateX(0%)";
+    } else {
+        book.style.transform = "translateX(100%)";
     }
+    prevBtn.style.transform = "translateX(0px)";
+    nextBtn.style.transform = "translateX(0px)";
+}
 
-    function closeBook(isAtBeginning) {
-        if(isAtBeginning) {
-            book.style.transform = "translateX(0%)"; // Fecha e volta ao centro
-        } else {
-            book.style.transform = "translateX(100%)"; // Fecha no fim
+function goNextPage() {
+    if (currentLocation < maxLocation) {
+        const paperIndex = currentLocation - 1;
+        const currentPaper = papers[paperIndex];
+
+        if (currentLocation === 1) {
+            openBook();
         }
-        prevBtn.style.transform = "translateX(0px)";
-        nextBtn.style.transform = "translateX(0px)";
-    }
 
-    function goNextPage() {
-        if(currentLocation < maxLocation) {
-            switch(currentLocation) {
-                case 1:
-                    openBook();
-                    paper1.classList.add("flipped");
-                    paper1.style.zIndex = 1; // Envia para trás
-                    break;
-                case 2:
-                    paper2.classList.add("flipped");
-                    paper2.style.zIndex = 2;
-                    break;
-                case 3:
-                    paper3.classList.add("flipped");
-                    paper3.style.zIndex = 3;
-                    closeBook(false); // Fecha o livro no fim
-                    break;
-                default:
-                    throw new Error("unknown state");
+        currentPaper.classList.add("flipped");
+        currentPaper.style.zIndex = currentLocation;
+
+        if (currentLocation === numOfPapers) {
+            closeBook(false);
+        }
+        currentLocation++;
+    }
+}
+
+function goPrevPage() {
+    if (currentLocation > 1) {
+        const paperIndex = currentLocation - 2;
+        const currentPaper = papers[paperIndex];
+
+        if (currentLocation === 2) {
+            closeBook(true);
+        }
+        
+        if (currentLocation === maxLocation) {
+            openBook();
+        }
+
+        currentPaper.classList.remove("flipped");
+        // Restaura o z-index original (baseado no total de páginas)
+        currentPaper.style.zIndex = numOfPapers - paperIndex;
+
+        currentLocation--;
+    }
+}
+
+// Event Listeners para botões
+if (nextBtn && prevBtn) {
+    nextBtn.addEventListener("click", goNextPage);
+    prevBtn.addEventListener("click", goPrevPage);
+}
+
+// Permitir clique nas páginas para virar
+papers.forEach((paper) => {
+    if (paper) {
+        paper.addEventListener('click', () => {
+            if (paper.classList.contains('flipped')) {
+                goPrevPage();
+            } else {
+                goNextPage();
             }
-            currentLocation++;
-        }
+        });
     }
-
-    function goPrevPage() {
-        if(currentLocation > 1) {
-            switch(currentLocation) {
-                case 2:
-                    closeBook(true); // Fecha o livro no início
-                    paper1.classList.remove("flipped");
-                    paper1.style.zIndex = 3; // Traz para a frente
-                    break;
-                case 3:
-                    paper2.classList.remove("flipped");
-                    paper2.style.zIndex = 2;
-                    break;
-                case 4:
-                    openBook();
-                    paper3.classList.remove("flipped");
-                    paper3.style.zIndex = 1;
-                    break;
-                default:
-                    throw new Error("unknown state");
-            }
-            currentLocation--;
-        }
-    }
-
-    // Event Listeners
-    if (nextBtn && prevBtn) {
-        nextBtn.addEventListener("click", goNextPage);
-        prevBtn.addEventListener("click", goPrevPage);
-    }
-    
-    // Permitir clique nas próprias páginas para virar
-    const papers = [paper1, paper2, paper3];
-    papers.forEach(paper => {
-        if(paper) {
-            paper.addEventListener('click', () => {
-                if (paper.classList.contains('flipped')) {
-                   // Se já está virada, volta para trás (lógica simplificada, melhor usar os botões para controlo total)
-                   // goPrevPage(); 
-                } else {
-                   goNextPage();
-                }
-            });
-        }
-    });
+});
