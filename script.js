@@ -354,3 +354,22 @@ papers.forEach((paper) => {
         });
     }
 });
+
+// Lógica do Carrossel Automático do Hero
+const heroSlides = document.querySelectorAll('.hero-slide');
+
+if (heroSlides.length > 0) {
+    let currentHeroSlide = 0;
+    const intervalTime = 4000; // Muda a imagem a cada 4 segundos
+
+    setInterval(() => {
+        // 1. Esconde o slide atual
+        heroSlides[currentHeroSlide].classList.remove('active');
+
+        // 2. Calcula qual é o próximo (volta ao 0 se chegar ao fim)
+        currentHeroSlide = (currentHeroSlide + 1) % heroSlides.length;
+
+        // 3. Mostra o novo slide
+        heroSlides[currentHeroSlide].classList.add('active');
+    }, intervalTime);
+}
