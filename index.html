@@ -188,16 +188,63 @@
 
 
     <section class="next-read-section hidden">
-        <div class="next-header">
-            <h3>All Articles</h3>
-            <div class="next-nav-buttons">
-                <button class="nav-btn prev" id="prevBtn"><i class="ri-arrow-left-line"></i></button>
-                <button class="nav-btn next" id="nextBtn"><i class="ri-arrow-right-line"></i></button>
+            <div class="next-header">
+                <h3>All Articles</h3>
+                <div class="next-nav-buttons">
+                    <button class="nav-btn prev" id="prevBtn"><i class="ri-arrow-left-line"></i></button>
+                    <button class="nav-btn next" id="nextBtn"><i class="ri-arrow-right-line"></i></button>
+                </div>
             </div>
+
+            <div class="carousel-track" id="track" data-current="0">
+        </div>
+            </div>
+        </section>
+
+        <section id="magazine" class="magazine-section">
+        <div class="magazine-header">
+            <h2>NEXUS MAGAZINE</h2>
+            <p>Visual Edition | Click to flip</p>
         </div>
 
-        <div class="carousel-track" id="track" data-current="0">
-    </div>
+        <div class="book-container">
+            <div id="book" class="book">
+                <div class="paper" id="p1">
+                    <div class="front">
+                        <img src="assets/capa_revista.png" class="full-page-img" alt="Capa">
+                    </div>
+                    <div class="back">
+                        <img src="assets/pagina_2.png" class="full-page-img" alt="Página 2">
+                    </div>
+                </div>
+
+                <div class="paper" id="p2">
+                    <div class="front">
+                        <img src="assets/pagina_3.png" class="full-page-img" alt="Página 3">
+                    </div>
+                    <div class="back">
+                        <img src="assets/pagina_4.png" class="full-page-img" alt="Página 4">
+                    </div>
+                </div>
+
+                <div class="paper" id="p3">
+                    <div class="front">
+                        <img src="assets/pagina_5.png" class="full-page-img" alt="Página 5">
+                    </div>
+                    <div class="back">
+                        <img src="assets/contracapa.png" class="full-page-img blur-img" alt="Contracapa">
+                        
+                        <div class="premium-overlay">
+                            <p>TO READ MORE <br> BUY THE PHYSICAL COPY</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="book-controls">
+                <button id="prev-page-btn"><i class="ri-arrow-left-line"></i></button>
+                <button id="next-page-btn"><i class="ri-arrow-right-line"></i></button>
+            </div>
         </div>
     </section>
 
@@ -205,7 +252,7 @@
         <main class="about-container">
             <section class="about-hero">
                 <span class="pill-badge">EST. 2026</span>
-                <h1>Intelligence <br> <span class="text-highlight">Without Limits</span></h1>
+                <h1>ABOUT this<br> <span class="text-highlight">Project</span></h1>
                 <p class="intro-text">
                     Nexus is not just a news site. It is a digital manifesto on the intersection of human ethics and synthetic evolution.
                 </p>

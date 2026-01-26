@@ -774,3 +774,224 @@ footer {
     .hero { width: 95%; height: 400px; margin-top: 180px; }
     .carousel-card { min-width: 260px; height: 380px; }
 }
+
+
+
+
+
+
+
+
+
+/* =========================================
+   SECÇÃO MAGAZINE 3D (CORRIGIDA)
+   ========================================= */
+
+.magazine-section {
+    padding: 100px 20px;
+    background-color: transparent;
+    text-align: center;
+    overflow: hidden;
+}
+
+.magazine-header h2 {
+    font-family: var(--font-highlight);
+    color: var(--text-main);
+    font-size: 2.5rem;
+    margin-bottom: 10px;
+    text-transform: uppercase;
+}
+
+.book-container {
+    position: relative;
+    width: 100%;
+    height: 600px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    perspective: 2000px; /* Aumentei para 2000px para reduzir distorção */
+}
+
+.book {
+    position: relative;
+    width: 350px;
+    height: 500px;
+    transform-style: preserve-3d; /* Essencial */
+}
+
+/* --- AS FOLHAS --- */
+.paper {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    top: 0;
+    left: 0;
+    transform-style: preserve-3d; /* Cada folha também precisa disto */
+    transform-origin: left; /* A folha roda a partir da esquerda (lombada) */
+    transition: transform 1s cubic-bezier(0.645, 0.045, 0.355, 1);
+}
+
+/* Z-Index Inicial (A capa fica por cima) */
+#p1 { z-index: 3; }
+#p2 { z-index: 2; }
+#p3 { z-index: 1; }
+
+/* --- FRENTE E VERSO --- */
+.front, .back {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    top: 0;
+    left: 0;
+    background-color: #fff; /* Fundo branco para não ser transparente */
+    
+    /* O SEGREDO ESTÁ AQUI: */
+    backface-visibility: hidden; 
+    -webkit-backface-visibility: hidden; /* Para Safari/Chrome antigos */
+    
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    overflow: hidden;
+    box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+}
+
+/* Configuração da FRENTE */
+.front {
+    z-index: 2;
+    /* A frente está na posição normal (0 graus) */
+    transform: rotateY(0deg); 
+}
+
+/* Configuração do VERSO (Costas da folha) */
+.back {
+    z-index: 1;
+    /* O verso já começa rodado 180 graus para estar "nas costas" */
+    transform: rotateY(180deg); 
+}
+
+/* --- IMAGENS --- */
+.full-page-img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+    user-select: none; /* Impede selecionar a imagem como texto */
+}
+
+/* Arredondamentos */
+.front, .front .full-page-img { border-radius: 5px 15px 15px 5px; }
+.back, .back .full-page-img   { border-radius: 15px 5px 5px 15px; }
+
+
+/* --- QUANDO A PÁGINA VIRA --- */
+.flipped {
+    /* Roda a folha toda -180 graus */
+    transform: rotateY(-180deg);
+}
+
+/* Controlo de Z-Index na viragem é feito pelo JavaScript, 
+   mas o CSS garante a rotação correta */
+
+
+/* --- BOTÕES --- */
+.book-controls {
+    position: absolute; bottom: -60px;
+    display: flex; gap: 30px; z-index: 100;
+}
+.book-controls button {
+    background: transparent;
+    border: 2px solid var(--purple-dark);
+    color: var(--purple-dark);
+    width: 50px; height: 50px; border-radius: 50%;
+    cursor: pointer; transition: 0.3s;
+    font-size: 1.2rem; display: flex; align-items: center; justify-content: center;
+}
+.book-controls button:hover {
+    background: var(--purple-dark); color: #fff; transform: scale(1.1);
+}
+
+/* Mobile */
+@media (max-width: 768px) {
+    .book-container { height: auto; perspective: none; }
+    .book { transform-style: flat; width: 100%; height: auto; display: flex; flex-direction: column; gap: 20px; }
+    .paper { position: relative; width: 100%; height: 500px; transform: none !important; margin-bottom: 20px; }
+    .back { display: none; } /* Esconde verso no mobile */
+    .book-controls { display: none; }
+}
+
+/* =========================================
+   FEATURE: CONTRACAPA BLOQUEADA (BLUR)
+   ========================================= */
+
+/* 1. O efeito de Desfoque na Imagem */
+.blur-img {
+    filter: blur(8px) grayscale(30%); /* Desfoca e tira um pouco de cor */
+    transform: scale(1.1); /* Zoom ligeiro para evitar bordas brancas feias devido ao blur */
+}
+
+/* 2. O Overlay (Contentor do Texto) */
+.premium-overlay {
+    position: absolute;
+    top: 0; left: 0;
+    width: 100%; height: 100%;
+    
+    /* Fundo escuro semi-transparente para contraste */
+    background: rgba(17, 17, 17, 0.6); 
+    
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    z-index: 20;
+    
+    /* Segue o arredondamento da página 'back' */
+    border-radius: 15px 5px 5px 15px; 
+}
+
+/* 3. Ícone de Cadeado (Opcional, requer RemixIcons) */
+.lock-icon {
+    font-size: 2rem;
+    color: var(--purple-light);
+    margin-bottom: 15px;
+    border: 2px solid var(--purple-light);
+    border-radius: 50%;
+    width: 50px; height: 50px;
+    display: flex; align-items: center; justify-content: center;
+}
+
+/* 4. O Texto "To Read More..." */
+.premium-overlay p {
+    font-family: var(--font-highlight); /* Orbitron */
+    color: #fff;
+    font-size: 1.2rem;
+    line-height: 1.5;
+    margin-bottom: 25px;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    text-shadow: 0 2px 10px rgba(0,0,0,0.8); /* Sombra para ler melhor */
+    padding: 0 20px;
+}
+
+/* 5. Botão "Buy Now" */
+.buy-btn {
+    background-color: var(--purple-dark);
+    color: #fff;
+    padding: 12px 30px;
+    border-radius: 50px;
+    font-family: var(--font-text);
+    font-size: 0.9rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    transition: all 0.3s ease;
+    border: 1px solid transparent;
+    box-shadow: 0 5px 15px rgba(79, 57, 130, 0.4);
+}
+
+.buy-btn:hover {
+    background-color: #fff;
+    color: var(--purple-dark);
+    transform: translateY(-3px);
+    box-shadow: 0 10px 20px rgba(255, 255, 255, 0.2);
+}
